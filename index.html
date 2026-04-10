@@ -1,11 +1,11 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Reveny â€“ E-mails que vendem. Gerados em minutos.</title>
+  <title>Reveny – E-mails que vendem. Gerados em minutos.</title>
   <meta name="description" content="Cole a URL de qualquer produto e a IA gera o banner, o copy e o HTML do e-mail em menos de 1 minuto." />
-  <meta property="og:title" content="Reveny â€“ E-mails que vendem. Gerados em minutos." />
+  <meta property="og:title" content="Reveny – E-mails que vendem. Gerados em minutos." />
   <meta property="og:description" content="Cole a URL de qualquer produto e a IA gera o banner, o copy e o HTML do e-mail em menos de 1 minuto." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://reveny.com.br" />
@@ -33,7 +33,7 @@
     .serif { font-family: 'DM Serif Display', serif; }
     a { text-decoration: none; color: inherit; }
 
-    /* â”€â”€ BotÃµes â”€â”€ */
+    /* ── Botões ── */
     .btn {
       display: inline-flex; align-items: center; gap: 8px;
       font-family: 'DM Sans', sans-serif;
@@ -51,7 +51,7 @@
     .btn-sm { font-size: 13px; padding: 9px 18px; }
     .btn-lg { font-size: 16px; padding: 15px 28px; }
 
-    /* â”€â”€ Navbar â”€â”€ */
+    /* ── Navbar ── */
     .navbar {
       position: sticky; top: 0; z-index: 100;
       background: var(--white);
@@ -87,7 +87,7 @@
     .navbar-mobile-menu.open { display: flex; }
     .navbar-mobile-menu a { font-size: 15px; font-weight: 500; color: var(--black); }
 
-    /* â”€â”€ Hero â”€â”€ */
+    /* ── Hero ── */
     .hero {
       background: var(--black);
       padding: 80px 32px 96px;
@@ -128,7 +128,7 @@
     }
     .hero-note strong { color: rgba(250,250,248,.55); font-weight: 500; }
 
-    /* â”€â”€ Logos â”€â”€ */
+    /* ── Logos ── */
     .logos-section {
       border-bottom: 1px solid var(--border);
       padding: 32px;
@@ -149,7 +149,7 @@
     }
     .logos-row span:hover { color: var(--gray); }
 
-    /* â”€â”€ SeÃ§Ãµes â”€â”€ */
+    /* ── Seções ── */
     .section { padding: 80px 32px; }
     .section-inner { max-width: 960px; margin: 0 auto; }
     .section-label {
@@ -168,7 +168,7 @@
       line-height: 1.6; max-width: 560px;
     }
 
-    /* â”€â”€ Como funciona â”€â”€ */
+    /* ── Como funciona ── */
     .steps-grid {
       display: grid; grid-template-columns: repeat(3, 1fr);
       gap: 24px; margin-top: 48px;
@@ -192,7 +192,7 @@
       font-size: 20px; color: var(--gray-light); z-index: 1;
     }
 
-    /* â”€â”€ Funcionalidades â”€â”€ */
+    /* ── Funcionalidades ── */
     .features-section { background: #f5f4f0; }
     .features-grid {
       display: grid; grid-template-columns: repeat(3, 1fr);
@@ -206,7 +206,7 @@
     .feature-title { font-size: 15px; font-weight: 700; color: var(--black); margin-bottom: 6px; }
     .feature-desc { font-size: 13px; color: var(--gray); line-height: 1.6; }
 
-    /* â”€â”€ Planos â”€â”€ */
+    /* ── Planos ── */
     .plans-grid {
       display: grid; grid-template-columns: repeat(3, 1fr);
       gap: 20px; margin-top: 48px;
@@ -246,7 +246,7 @@
     }
     .plan-desc { font-size: 13px; color: var(--gray); line-height: 1.6; flex: 1; margin-bottom: 24px; }
 
-    /* â”€â”€ CTA Final â”€â”€ */
+    /* ── CTA Final ── */
     .cta-section {
       background: var(--black); padding: 96px 32px;
       text-align: center; position: relative; overflow: hidden;
@@ -268,7 +268,7 @@
     }
     .cta-sub { font-size: 16px; color: rgba(250,250,248,.55); margin-bottom: 36px; }
 
-    /* â”€â”€ Footer â”€â”€ */
+    /* ── Footer ── */
     .footer {
       border-top: 1px solid var(--border);
       padding: 28px 32px;
@@ -285,7 +285,7 @@
     .footer-links a:hover { color: var(--black); }
     .footer-copy { font-size: 13px; color: var(--gray-light); }
 
-    /* â”€â”€ AnimaÃ§Ãµes â”€â”€ */
+    /* ── Animações ── */
     .fade-up { opacity: 0; transform: translateY(24px); transition: opacity .6s, transform .6s; }
     .fade-up.visible { opacity: 1; transform: translateY(0); }
     .fade-up-d1 { transition-delay: .1s; }
@@ -293,7 +293,7 @@
     .fade-up-d3 { transition-delay: .3s; }
     .fade-up-d4 { transition-delay: .4s; }
 
-    /* â”€â”€ Responsivo â”€â”€ */
+    /* ── Responsivo ── */
     @media (max-width: 768px) {
       .navbar-links, .navbar-cta-desktop { display: none; }
       .navbar-hamburger { display: block; }
@@ -320,10 +320,10 @@
   <a href="#" class="navbar-logo"><img src="./logo.png" alt="Reveny" style="height:96px;width:auto;" /></a>
   <ul class="navbar-links">
     <li><a href="#funcionalidades">Funcionalidades</a></li>
-    <li><a href="#precos">PreÃ§os</a></li>
+    <li><a href="#precos">Preços</a></li>
   </ul>
   <a href="https://reveny-app.vercel.app/login?next=/pricing" class="btn btn-primary btn-sm navbar-cta-desktop" target="_blank">
-    ComeÃ§ar grÃ¡tis
+    Começar grátis
   </a>
   <button class="navbar-hamburger" aria-label="Menu" onclick="this.classList.toggle('open'); document.querySelector('.navbar-mobile-menu').classList.toggle('open')">
     <span></span><span></span><span></span>
@@ -331,8 +331,8 @@
 </nav>
 <div class="navbar-mobile-menu">
   <a href="#funcionalidades">Funcionalidades</a>
-  <a href="#precos">PreÃ§os</a>
-  <a href="https://reveny-app.vercel.app/login?next=/pricing" class="btn btn-primary btn-sm" target="_blank">ComeÃ§ar grÃ¡tis</a>
+  <a href="#precos">Preços</a>
+  <a href="https://reveny-app.vercel.app/login?next=/pricing" class="btn btn-primary btn-sm" target="_blank">Começar grátis</a>
 </div>
 
 <!-- HERO -->
@@ -355,14 +355,14 @@
       </a>
     </div>
     <p class="hero-note fade-up fade-up-d4">
-      <strong>GrÃ¡tis para comeÃ§ar.</strong> Sem cartÃ£o de crÃ©dito. Sem configuraÃ§Ã£o tÃ©cnica.
+      <strong>Grátis para começar.</strong> Sem cartão de crédito. Sem configuração técnica.
     </p>
   </div>
 </section>
 
 <!-- LOGOS -->
 <div class="logos-section">
-  <p class="logos-label">CompatÃ­vel com as principais plataformas</p>
+  <p class="logos-label">Compatível com as principais plataformas</p>
   <div class="logos-row">
     <span>Flowbiz</span>
     <span>Yampi</span>
@@ -377,20 +377,20 @@
   <div class="section-inner">
     <p class="section-label fade-up">Como funciona</p>
     <h2 class="section-title serif fade-up fade-up-d1">Simples assim</h2>
-    <p class="section-sub fade-up fade-up-d2">TrÃªs passos. Menos de um minuto. E-mail pronto para converter.</p>
+    <p class="section-sub fade-up fade-up-d2">Três passos. Menos de um minuto. E-mail pronto para converter.</p>
     <div class="steps-grid">
       <div class="step-card fade-up fade-up-d1">
         <p class="step-number">Passo 01</p>
         <div class="step-icon">ðŸ”—</div>
         <h3 class="step-title">Cole a URL do produto</h3>
-        <p class="step-desc">Qualquer produto de qualquer loja. A IA extrai nome, preÃ§o, imagem e descriÃ§Ã£o automaticamente â€” sem copiar e colar nada.</p>
+        <p class="step-desc">Qualquer produto de qualquer loja. A IA extrai nome, preço, imagem e descrição automaticamente — sem copiar e colar nada.</p>
         <span class="step-arrow">â†’</span>
       </div>
       <div class="step-card fade-up fade-up-d2">
         <p class="step-number">Passo 02</p>
         <div class="step-icon">âœ¨</div>
         <h3 class="step-title">A IA gera tudo</h3>
-        <p class="step-desc">Banner contextualizado, copy profissional e HTML compatÃ­vel com qualquer ESP. Em menos de 1 minuto, sem esforÃ§o.</p>
+        <p class="step-desc">Banner contextualizado, copy profissional e HTML compatível com qualquer ESP. Em menos de 1 minuto, sem esforço.</p>
         <span class="step-arrow">â†’</span>
       </div>
       <div class="step-card fade-up fade-up-d3">
@@ -407,38 +407,38 @@
 <section class="section features-section" id="funcionalidades">
   <div class="section-inner">
     <p class="section-label fade-up">Funcionalidades</p>
-    <h2 class="section-title serif fade-up fade-up-d1">Tudo que vocÃª precisa</h2>
-    <p class="section-sub fade-up fade-up-d2">Do scraping do produto ao HTML final â€” o Reveny cobre todo o processo de criaÃ§Ã£o de e-mail marketing.</p>
+    <h2 class="section-title serif fade-up fade-up-d1">Tudo que você precisa</h2>
+    <p class="section-sub fade-up fade-up-d2">Do scraping do produto ao HTML final — o Reveny cobre todo o processo de criação de e-mail marketing.</p>
     <div class="features-grid">
       <div class="feature-card fade-up fade-up-d1">
         <div class="feature-icon">ðŸŽ¨</div>
         <h3 class="feature-title">Banner gerado por IA</h3>
-        <p class="feature-desc">Foto do produto transformada em banner profissional e contextualizado. NÃ£o Ã© foto de catÃ¡logo â€” Ã© arte para converter.</p>
+        <p class="feature-desc">Foto do produto transformada em banner profissional e contextualizado. Não é foto de catálogo — é arte para converter.</p>
       </div>
       <div class="feature-card fade-up fade-up-d2">
         <div class="feature-icon">âœï¸</div>
         <h3 class="feature-title">Copy que converte</h3>
-        <p class="feature-desc">Headline, parÃ¡grafos e CTA escritos por IA treinada para e-mail marketing brasileiro. Tom da sua marca.</p>
+        <p class="feature-desc">Headline, parágrafos e CTA escritos por IA treinada para e-mail marketing brasileiro. Tom da sua marca.</p>
       </div>
       <div class="feature-card fade-up fade-up-d3">
         <div class="feature-icon">ðŸ“</div>
         <h3 class="feature-title">Templates por nicho</h3>
-        <p class="feature-desc">Layouts otimizados para construÃ§Ã£o, moda, beleza, alimentaÃ§Ã£o, eletrÃ´nicos e casa.</p>
+        <p class="feature-desc">Layouts otimizados para construção, moda, beleza, alimentação, eletrônicos e casa.</p>
       </div>
       <div class="feature-card fade-up fade-up-d1">
         <div class="feature-icon">ðŸ”—</div>
-        <h3 class="feature-title">Scraping automÃ¡tico</h3>
+        <h3 class="feature-title">Scraping automático</h3>
         <p class="feature-desc">Cole a URL e pronto. Funciona com Nuvemshop, Shopify, VTEX, Loja Integrada e mais.</p>
       </div>
       <div class="feature-card fade-up fade-up-d2">
         <div class="feature-icon">ðŸ“§</div>
-        <h3 class="feature-title">HTML compatÃ­vel</h3>
-        <p class="feature-desc">CÃ³digo limpo e responsivo. Funciona no Gmail, Outlook e todos os ESPs do mercado.</p>
+        <h3 class="feature-title">HTML compatível</h3>
+        <p class="feature-desc">Código limpo e responsivo. Funciona no Gmail, Outlook e todos os ESPs do mercado.</p>
       </div>
       <div class="feature-card fade-up fade-up-d3">
         <div class="feature-icon">ðŸ“Š</div>
         <h3 class="feature-title">Multi-marca</h3>
-        <p class="feature-desc">Gerencie mÃºltiplos clientes e marcas em uma Ãºnica conta. Ideal para agÃªncias e freelancers.</p>
+        <p class="feature-desc">Gerencie múltiplos clientes e marcas em uma única conta. Ideal para agências e freelancers.</p>
       </div>
     </div>
   </div>
@@ -455,37 +455,37 @@
       <div class="plan-card fade-up fade-up-d1">
         <p class="plan-name">Aprendiz</p>
         <div class="plan-price"><sup>R$</sup>197</div>
-        <p class="plan-period">por mÃªs</p>
+        <p class="plan-period">por mês</p>
         <ul class="plan-features">
-          <li>12 e-mails por mÃªs</li>
+          <li>12 e-mails por mês</li>
           <li>1 marca</li>
           <li>Banner com IA</li>
           <li>Templates por nicho</li>
           <li>Exportar HTML</li>
         </ul>
-        <a href="https://reveny-app.vercel.app/login?next=/pricing?plan=aprendiz" class="btn btn-outline-dark" target="_blank" style="justify-content:center;">ComeÃ§ar</a>
+        <a href="https://reveny-app.vercel.app/login?next=/pricing?plan=aprendiz" class="btn btn-outline-dark" target="_blank" style="justify-content:center;">Começar</a>
       </div>
 
       <div class="plan-card popular fade-up fade-up-d2">
         <div class="plan-badge">Mais popular</div>
         <p class="plan-name">Pro</p>
         <div class="plan-price"><sup>R$</sup>397</div>
-        <p class="plan-period">por mÃªs</p>
+        <p class="plan-period">por mês</p>
         <ul class="plan-features">
-          <li>30 e-mails por mÃªs</li>
-          <li>AtÃ© 3 marcas</li>
+          <li>30 e-mails por mês</li>
+          <li>Até 3 marcas</li>
           <li>Tudo do Aprendiz</li>
           <li>Multi-marca</li>
-          <li>Suporte prioritÃ¡rio</li>
+          <li>Suporte prioritário</li>
         </ul>
-        <a href="https://reveny-app.vercel.app/login?next=/pricing?plan=pro" class="btn btn-primary" target="_blank" style="justify-content:center;">ComeÃ§ar</a>
+        <a href="https://reveny-app.vercel.app/login?next=/pricing?plan=pro" class="btn btn-primary" target="_blank" style="justify-content:center;">Começar</a>
       </div>
 
       <div class="plan-card fade-up fade-up-d3">
-        <p class="plan-name">AgÃªncia</p>
+        <p class="plan-name">Agência</p>
         <div class="plan-price" style="font-size:28px;margin-bottom:4px;">a partir de <sup style="font-size:14px;">R$</sup>797</div>
-        <p class="plan-period">por mÃªs</p>
-        <p class="plan-desc">Quer um plano sob medida para sua agÃªncia? Fale com um consultor e monte o pacote ideal para o seu volume.</p>
+        <p class="plan-period">por mês</p>
+        <p class="plan-desc">Quer um plano sob medida para sua agência? Fale com um consultor e monte o pacote ideal para o seu volume.</p>
         <a href="https://reveny-app.vercel.app/login?next=/pricing?plan=agencia" class="btn btn-outline-dark" target="_blank" style="justify-content:center;">Falar com um consultor</a>
       </div>
 
@@ -499,7 +499,7 @@
     <h2 class="cta-headline serif fade-up">Pronto para criar<br>e-mails que vendem?</h2>
     <p class="cta-sub fade-up fade-up-d1">Comece hoje. Seu primeiro e-mail em menos de 5 minutos.</p>
     <a href="https://reveny-app.vercel.app/login?next=/pricing" class="btn btn-primary btn-lg fade-up fade-up-d2" target="_blank">
-      Criar minha conta grÃ¡tis â†’
+      Criar minha conta grátis â†’
     </a>
   </div>
 </section>
@@ -511,7 +511,7 @@
     <a href="#">Termos de uso</a>
     <a href="#">Privacidade</a>
   </div>
-  <p class="footer-copy">Â© 2025 Reveny. Todos os direitos reservados.</p>
+  <p class="footer-copy">© 2025 Reveny. Todos os direitos reservados.</p>
 </footer>
 
 <script>
