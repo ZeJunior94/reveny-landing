@@ -547,7 +547,7 @@
     <li><a href="#pricing">Planos</a></li>
     <li><a href="#faq">FAQ</a></li>
   </ul>
-  <button class="nav-cta">Começar grátis</button>
+  <button class="nav-cta" onclick="agendarDemo()">Agendar demonstração</button>
 </nav>
 
 <!-- HERO -->
@@ -569,8 +569,8 @@
   </p>
 
   <div class="hero-btns">
-    <button class="btn-main">Gerar meu primeiro email</button>
-    <button class="btn-link">Ver como funciona →</button>
+    <button class="btn-main" onclick="agendarDemo()">Agendar demonstração</button>
+    <button class="btn-link" onclick="document.getElementById('how').scrollIntoView({behavior:'smooth'})">Ver como funciona →</button>
   </div>
 </section>
 
@@ -764,7 +764,7 @@
         <li>Histórico completo de campanhas</li>
         <li>Suporte por email</li>
       </ul>
-      <button class="plan-btn outline">Começar</button>
+      <button class="plan-btn outline" onclick="agendarDemo()">Agendar demonstração</button>
       <div class="plan-note">Ao atingir o limite, seu plano sobe automaticamente para a próxima faixa.</div>
     </div>
 
@@ -807,7 +807,7 @@
         <li>Multi-workspace por cliente</li>
         <li>Suporte prioritário</li>
       </ul>
-      <button class="plan-btn solid">Começar</button>
+      <button class="plan-btn solid" onclick="agendarDemo()">Agendar demonstração</button>
       <div class="plan-note">Acima de 10 marcas, pague apenas R$ 69 por marca adicional.</div>
     </div>
 
@@ -856,8 +856,8 @@
     você envia<span class="dot">.</span>
   </h2>
   <p class="cta-sub reveal">Junte-se a centenas de lojas e agências que pararam de perder horas criando email do zero.</p>
-  <button class="cta-btn reveal">Gerar meu primeiro email →</button>
-  <div class="cta-note reveal">Sem cartão de crédito · Primeiro email grátis</div>
+  <button class="cta-btn reveal" onclick="agendarDemo()">Agendar demonstração →</button>
+  <div class="cta-note reveal">Demonstração gratuita · Sem compromisso</div>
 </section>
 
 <!-- FOOTER -->
@@ -873,6 +873,10 @@
 </footer>
 
 <script>
+  // ── CALENDLY ── Troque pela URL do seu evento após criar a conta
+  const CALENDLY_URL = 'https://calendly.com/reveny/demo';
+  function agendarDemo() { window.open(CALENDLY_URL, '_blank'); }
+
   const obs = new IntersectionObserver(entries => {
     entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target); } });
   }, { threshold:0.07 });
