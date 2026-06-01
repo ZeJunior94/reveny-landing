@@ -34,8 +34,8 @@
     position:fixed; top:0; left:0; right:0; z-index:100;
     padding:1.5rem 1.8rem;
     display:flex; justify-content:space-between; align-items:center;
-    background:#0b1520;
-    border-bottom:1px solid rgba(74,127,165,.08);
+    background:linear-gradient(to bottom, rgba(11,21,32,.95) 0%, rgba(11,21,32,0) 100%);
+    border-bottom:none;
     opacity:0; animation:fadeDown .6s .1s forwards;
   }
 
@@ -56,22 +56,44 @@
 
   nav ul { display:none; }
 
-  /* ── HERO ── */
+  /* ── HERO TICKER ── */
   .hero {
-    min-height:100vh;
+    position:relative;
+    height:100vh;
     background:#0b1520;
-    display:flex; flex-direction:column;
-    align-items:center; justify-content:center;
-    text-align:center;
-    padding:8rem 1.8rem 6rem;
-    position:relative; overflow:hidden;
+    overflow:hidden;
   }
 
-  .hero-glow {
-    position:absolute; top:30%; left:50%;
-    transform:translate(-50%,-50%);
-    width:100vw; height:50vh;
-    background:radial-gradient(ellipse at center, rgba(74,127,165,.2) 0%, rgba(11,21,32,0) 70%);
+  /* fades top/bottom */
+  .hero-fade-top {
+    position:absolute; top:0; left:0; right:0; height:180px; z-index:3;
+    background:linear-gradient(to bottom, #0b1520 25%, transparent);
+    pointer-events:none;
+  }
+  .hero-fade-bottom {
+    position:absolute; bottom:0; left:0; right:0; height:180px; z-index:3;
+    background:linear-gradient(to top, #0b1520 25%, transparent);
+    pointer-events:none;
+  }
+
+  /* ticker grid */
+  .ticker-grid {
+    display:flex; gap:10px;
+    height:100%; padding:0 10px;
+    position:absolute; inset:0;
+    overflow:hidden;
+  }
+  .ticker-col {
+    flex:0 0 200px; display:flex; flex-direction:column; gap:10px;
+    will-change:transform;
+  }
+
+  /* texto central */
+  .hero-center {
+    position:absolute; inset:0; z-index:10;
+    display:flex; flex-direction:column;
+    align-items:center; justify-content:center;
+    text-align:center; padding:0 1.8rem;
     pointer-events:none;
   }
 
@@ -79,10 +101,11 @@
     display:inline-flex; align-items:center; gap:.5rem;
     border:1px solid rgba(74,127,165,.3);
     padding:.4rem 1rem; border-radius:100px;
-    font-size:.65rem; letter-spacing:.14em; text-transform:uppercase;
-    color:#7aaec7; margin-bottom:2.5rem;
+    font-size:.62rem; letter-spacing:.14em; text-transform:uppercase;
+    color:#7aaec7; margin-bottom:1.5rem;
+    background:rgba(11,21,32,.7);
+    text-shadow:none;
     opacity:0; animation:fadeUp .7s .3s forwards;
-    position:relative; background:rgba(74,127,165,.05);
   }
   .hero-badge-dot {
     width:6px; height:6px; border-radius:50%;
@@ -91,43 +114,82 @@
 
   .hero-tagline {
     font-family:'Plus Jakarta Sans',sans-serif;
-    font-weight:800;
-    font-size:clamp(3.2rem,14vw,8rem);
-    line-height:.93; letter-spacing:-.05em;
-    position:relative;
-    opacity:0; animation:fadeUp 1s .45s forwards;
-    max-width:820px;
+    font-weight:800; font-size:clamp(3.2rem,14vw,7.5rem);
+    line-height:.92; letter-spacing:-.05em;
   }
-  .line-1 { display:block; color:#7aaec7; font-style:italic; font-weight:300; }
-  .line-2 { display:block; color:#ffffff; }
-  .dot    { color:#4a7fa5; }
+  .line-1 {
+    display:block; color:#7aaec7; font-style:italic; font-weight:300;
+    text-shadow:0 0 40px #0b1520, 0 0 80px #0b1520, 0 2px 20px rgba(0,0,0,1);
+    opacity:0; animation:fadeUp .9s .4s forwards;
+  }
+  .line-2 {
+    display:block; color:#ffffff;
+    text-shadow:0 0 40px #0b1520, 0 0 80px #0b1520, 0 2px 20px rgba(0,0,0,1);
+    opacity:0; animation:fadeUp .9s .55s forwards;
+  }
+  .dot { color:#4a7fa5; }
 
   .hero-sub {
-    margin-top:2rem; max-width:340px;
-    font-size:.95rem; color:rgba(255,255,255,.38);
-    line-height:1.8; position:relative;
-    opacity:0; animation:fadeUp .8s .65s forwards;
+    margin-top:1.5rem; font-size:.92rem;
+    color:rgba(255,255,255,.9);
+    text-shadow:0 0 20px #0b1520, 0 0 40px #0b1520, 0 2px 8px rgba(0,0,0,1);
+    max-width:320px; line-height:1.75;
+    opacity:0; animation:fadeUp .8s .7s forwards;
   }
-  .hero-sub strong { color:rgba(255,255,255,.72); font-weight:400; }
+  .hero-sub strong { color:white; font-weight:500; }
 
   .hero-btns {
-    margin-top:2.5rem;
+    margin-top:2rem; pointer-events:auto;
     display:flex; flex-direction:column; gap:.85rem; align-items:center; width:100%;
-    opacity:0; animation:fadeUp .8s .8s forwards; position:relative;
+    opacity:0; animation:fadeUp .8s .85s forwards;
   }
 
   .btn-main {
     background:#4a7fa5; color:white; border:none; cursor:pointer;
     padding:1rem 2.4rem; font-family:'DM Sans',sans-serif;
     font-size:.9rem; letter-spacing:.04em; width:100%; max-width:320px;
-    -webkit-appearance:none;
+    -webkit-appearance:none; box-shadow:0 4px 24px rgba(0,0,0,.6);
+    transition:background .2s;
   }
+  .btn-main:hover { background:#7aaec7; }
 
   .btn-link {
-    color:rgba(255,255,255,.3); font-size:.82rem; letter-spacing:.04em;
+    color:rgba(255,255,255,.5); font-size:.82rem; letter-spacing:.04em;
     cursor:pointer; border:none; background:none;
     font-family:'DM Sans',sans-serif;
+    text-shadow:0 0 10px #0b1520;
   }
+
+  /* email cards */
+  .email-card {
+    border-radius:3px; overflow:hidden;
+    background:#111e30; border:1px solid rgba(74,127,165,.12);
+    flex-shrink:0; opacity:.45;
+  }
+  .email-topbar {
+    background:#0b1520; padding:.4rem .65rem;
+    display:flex; align-items:center; gap:.3rem;
+    border-bottom:1px solid rgba(74,127,165,.08);
+  }
+  .etb-dot { width:5px; height:5px; border-radius:50%; }
+  .email-banner {
+    display:flex; align-items:center; justify-content:center;
+    font-family:'Plus Jakarta Sans',sans-serif; font-weight:800;
+    text-align:center; letter-spacing:-.03em; position:relative; overflow:hidden;
+  }
+  .email-banner::before {
+    content:''; position:absolute; inset:0;
+    background:radial-gradient(ellipse at 70% 40%, rgba(255,255,255,.08) 0%, transparent 65%);
+  }
+  .banner-inner { position:relative; z-index:1; padding:.5rem; }
+  .banner-title { line-height:1.1; }
+  .banner-sub   { font-size:.46rem; letter-spacing:.12em; text-transform:uppercase; opacity:.55; margin-top:.15rem; font-weight:400; }
+  .email-body { padding:.5rem .65rem .65rem; }
+  .email-line { height:4px; border-radius:1px; margin-bottom:.26rem; }
+  .email-cta  { height:13px; border-radius:1px; margin-top:.4rem; width:55%; }
+
+  @keyframes scrollUp   { from{transform:translateY(0)}    to{transform:translateY(-50%)} }
+  @keyframes scrollDown { from{transform:translateY(-50%)} to{transform:translateY(0)} }
 
   /* ── PARCEIROS ── */
   .partners {
@@ -314,7 +376,6 @@
   .plan-div { height:1px; background:rgba(74,127,165,.1); margin-bottom:1.2rem; }
   .plan.featured .plan-div { background:rgba(255,255,255,.1); }
 
-  /* tiers dentro do plano */
   .plan-tiers { display:flex; flex-direction:column; gap:2px; margin-bottom:1.5rem; }
   .plan-tier {
     display:flex; justify-content:space-between; align-items:center;
@@ -368,7 +429,6 @@
   .plan-btn.outline { background:transparent; border:1px solid rgba(74,127,165,.25); color:#4a7fa5; }
   .plan-btn.solid   { background:#4a7fa5; color:white; }
 
-  /* nota de auto-upgrade */
   .plan-note {
     margin-top:1rem; font-size:.68rem; color:#aab8c2;
     text-align:center; line-height:1.6;
@@ -465,74 +525,59 @@
     nav ul a { text-decoration:none; color:rgba(255,255,255,.32); font-size:.78rem; letter-spacing:.08em; text-transform:uppercase; }
     nav { padding:1.5rem 4rem; }
 
-    /* container padrão */
     .section-dark, .section-dark2, .section-light { padding:7rem 4rem; max-width:100%; }
     .section-dark > *, .section-dark2 > *, .section-light > * {
       max-width:1080px; margin-left:auto; margin-right:auto; padding-left:4rem; padding-right:4rem;
     }
 
-    .hero { padding:10rem 4rem 7rem; }
     .hero-tagline { font-size:clamp(4rem,8vw,8rem); }
     .hero-sub { max-width:460px; font-size:1.05rem; }
     .hero-btns { flex-direction:row; justify-content:center; width:auto; }
     .btn-main { width:auto; }
 
-    /* inner content max-width */
     .section-dark > div, .section-dark2 > div, .section-light > div,
     .section-dark > table, .section-light > table { max-width:1080px; margin-left:auto; margin-right:auto; }
     .section-cta > * { max-width:860px; margin-left:auto; margin-right:auto; }
 
-    /* steps lado a lado */
     .steps { flex-direction:row; gap:0; }
     .step { flex:1; padding:3rem 2.5rem; }
     .step-n { font-size:3.5rem; }
     .step-title { font-size:1.05rem; }
     .step-desc  { font-size:.88rem; }
 
-    /* stats lado a lado */
     .stats { flex-direction:row; gap:0; }
     .stat { flex:1; padding:2.5rem; text-align:center; }
     .stat-val { font-size:3rem; }
 
-    /* depoimentos lado a lado */
     .testis { flex-direction:row; gap:0; }
     .testi { flex:1; padding:2.5rem; }
     .testi-text { font-size:.95rem; }
 
-    /* planos lado a lado — 2 colunas */
     .plans { flex-direction:row; gap:0; align-items:start; }
     .plan { flex:1; padding:2.5rem 2rem; }
 
-    /* timeline mais larga */
     .timeline { max-width:720px; }
     .tl-title { font-size:1rem; }
     .tl-desc  { font-size:.88rem; }
 
-    /* cbox */
     .cbox { max-width:1080px; margin:0 auto; padding:3rem 4rem; }
     .cbox-val { font-size:3rem; }
 
-    /* cta */
     .section-cta { padding:10rem 4rem; }
     .cta-tagline { font-size:clamp(4rem,9vw,7.5rem); }
     .cta-sub { font-size:1rem; max-width:460px; }
     .cta-btn { width:auto; padding:1.1rem 3.5rem; }
 
-    /* faq */
     .faq-list { max-width:720px; }
     .faq-q { font-size:1rem; }
 
-    /* footer */
     footer { flex-direction:row; justify-content:space-between; text-align:left; padding:3rem 4rem; }
 
-    /* s-title maior no desktop */
     .s-title { font-size:clamp(2.4rem,4vw,3.5rem); margin-bottom:3.5rem; }
 
-    /* parceiros */
     .partners { padding:2rem 4rem; }
     .partners-inner { min-width:0; }
 
-    /* tiers desktop */
     .plan-tiers { gap:3px; }
   }
 </style>
@@ -550,29 +595,70 @@
   <button class="nav-cta" onclick="agendarDemo()">Agendar demonstração</button>
 </nav>
 
-<!-- HERO -->
+<!-- HERO TICKER -->
 <section class="hero">
-  <div class="hero-glow"></div>
+  <div class="hero-fade-top"></div>
+  <div class="hero-fade-bottom"></div>
 
-  <div class="hero-badge">
-    <div class="hero-badge-dot"></div>
-    Novo · Geração de email em segundos
-  </div>
+  <!-- ticker preenchido por JS -->
+  <div class="ticker-grid" id="ticker"></div>
 
-  <h1 class="hero-tagline">
-    <span class="line-1">A gente cria,</span>
-    <span class="line-2">você envia<span class="dot">.</span></span>
-  </h1>
-
-  <p class="hero-sub">
-    Cole a URL do produto. A Reveny escreve o copy, gera o banner e entrega o email completo. <strong>Em segundos.</strong>
-  </p>
-
-  <div class="hero-btns">
-    <button class="btn-main" onclick="agendarDemo()">Agendar demonstração</button>
-    <button class="btn-link" onclick="document.getElementById('how').scrollIntoView({behavior:'smooth'})">Ver como funciona →</button>
+  <!-- texto central -->
+  <div class="hero-center">
+    <div class="hero-badge">
+      <div class="hero-badge-dot"></div>
+      Novo · Geração de email em segundos
+    </div>
+    <h1 class="hero-tagline">
+      <span class="line-1">A gente cria,</span>
+      <span class="line-2">você envia<span class="dot">.</span></span>
+    </h1>
+    <p class="hero-sub">
+      Cole a URL do produto. A Reveny escreve o copy, gera o banner e entrega o email completo. <strong>Em segundos.</strong>
+    </p>
+    <div class="hero-btns">
+      <button class="btn-main" onclick="agendarDemo()">Agendar demonstração</button>
+      <button class="btn-link" onclick="document.getElementById('how').scrollIntoView({behavior:'smooth'})">Ver como funciona →</button>
+    </div>
   </div>
 </section>
+
+<!-- ticker JS -->
+<script>
+(function(){
+  const emails = [
+    { t:"Nova Coleção\nVerão 2025", s:"Só hoje · Frete grátis", c1:"#c8a0ff", bg:"linear-gradient(135deg,#1a0a2e,#3d1f6e)", line:"rgba(144,96,224,.22)", cta:"#9060e0" },
+    { t:"Cuide-se\nDe Você",        s:"Até 40% off",            c1:"#ffb0c8", bg:"linear-gradient(135deg,#2e0a1a,#7a2040)", line:"rgba(224,96,128,.22)", cta:"#e06080" },
+    { t:"Prime Day\nTech",           s:"Ofertas por 48h",        c1:"#80c8ff", bg:"linear-gradient(135deg,#0a1a2e,#1e4a7a)", line:"rgba(64,144,208,.22)", cta:"#4090d0" },
+    { t:"Kits\nGourmet",             s:"Entrega hoje",           c1:"#b0ff90", bg:"linear-gradient(135deg,#1a2a0a,#3d6e1f)", line:"rgba(80,160,48,.22)",  cta:"#50a030" },
+    { t:"Run\nSeason",               s:"Tênis de corrida",       c1:"#ffa080", bg:"linear-gradient(135deg,#1a0a0a,#7a2020)", line:"rgba(208,64,32,.22)",  cta:"#d04020" },
+    { t:"Sala Nova\nVida Nova",       s:"Parcelado 10x",          c1:"#80ffe0", bg:"linear-gradient(135deg,#0a1a1a,#1f5a5a)", line:"rgba(32,160,128,.22)", cta:"#20a080" },
+    { t:"De Volta\nÀs Aulas",        s:"Lápis, tudo e mais",     c1:"#ffd080", bg:"linear-gradient(135deg,#1a150a,#6e4a1f)", line:"rgba(192,128,32,.22)", cta:"#c08020" },
+    { t:"Dia dos\nNamorados",        s:"Coleção especial",       c1:"#fff080", bg:"linear-gradient(135deg,#1a1a0a,#5a5a1f)", line:"rgba(160,160,32,.22)", cta:"#a0a020" },
+    { t:"Seu Pet\nMerece",           s:"Ração premium",          c1:"#90ffb0", bg:"linear-gradient(135deg,#0a1a10,#1f6e3d)", line:"rgba(48,160,80,.22)",  cta:"#30a050" },
+    { t:"Inverno\n2025",             s:"Peças novas todo dia",   c1:"#d0a0ff", bg:"linear-gradient(135deg,#150a2e,#3d1f8e)", line:"rgba(128,64,208,.22)", cta:"#8040d0" },
+    { t:"Beleza\nSem Limite",        s:"Kit especial",           c1:"#ffc0d8", bg:"linear-gradient(135deg,#2e0a20,#8a2050)", line:"rgba(208,80,128,.22)", cta:"#d05080" },
+    { t:"Build\nYour PC",            s:"Componentes top",        c1:"#60d0ff", bg:"linear-gradient(135deg,#0a1520,#1a3a6a)", line:"rgba(32,128,192,.22)", cta:"#2080c0" },
+  ];
+  function card(e){
+    const lines=e.t.split('\n'), fs=lines[0].length>8?'.6rem':'.72rem', bh=52+Math.floor(Math.random()*18);
+    return `<div class="email-card"><div class="email-topbar"><div class="etb-dot" style="background:${e.c1}"></div><div class="etb-dot" style="background:rgba(255,255,255,.14)"></div><div class="etb-dot" style="background:rgba(255,255,255,.07)"></div></div><div class="email-banner" style="height:${bh}px;background:${e.bg}"><div class="banner-inner"><div class="banner-title" style="font-size:${fs};color:white">${lines.join('<br>')}</div><div class="banner-sub" style="color:${e.c1}">${e.s}</div></div></div><div class="email-body"><div class="email-line" style="background:${e.line};width:92%"></div><div class="email-line" style="background:${e.line};width:74%"></div><div class="email-line" style="background:${e.line};width:83%"></div><div class="email-line" style="background:${e.line};width:52%"></div><div class="email-cta" style="background:${e.cta}"></div></div></div>`;
+  }
+  const grid=document.getElementById('ticker');
+  const COL_W=200, GAP=10;
+  const cols=Math.max(3, Math.floor((window.innerWidth+GAP)/(COL_W+GAP)));
+  const speeds=[28,22,30,24,26,32,20,34,26,28];
+  const dirs=['scrollUp','scrollDown','scrollUp','scrollDown','scrollUp','scrollDown','scrollUp','scrollDown','scrollUp','scrollDown'];
+  for(let i=0;i<cols;i++){
+    const col=document.createElement('div');
+    col.className='ticker-col';
+    col.style.animation=`${dirs[i%dirs.length]} ${speeds[i%speeds.length]}s linear infinite`;
+    const sh=[...emails].sort(()=>Math.random()-.5);
+    col.innerHTML=[...sh,...sh].map(card).join('');
+    grid.appendChild(col);
+  }
+})();
+</script>
 
 <!-- PARCEIROS -->
 <div class="partners reveal">
@@ -873,7 +959,6 @@
 </footer>
 
 <script>
-  // ── CALENDLY ── Troque pela URL do seu evento após criar a conta
   const CALENDLY_URL = 'https://calendly.com/reveny/demo';
   function agendarDemo() { window.open(CALENDLY_URL, '_blank'); }
 
