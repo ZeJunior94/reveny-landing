@@ -4,24 +4,27 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Reveny — A gente cria, você envia.</title>
+<meta name="description" content="A Reveny conecta a loja e a ferramenta de envio dos seus clientes, mostra o que fazer e entrega a campanha pronta, com a cara de cada marca.">
+<link rel="icon" type="image/svg+xml" href="brand/favicon.svg">
+<link rel="apple-touch-icon" href="brand/apple-touch-icon.png">
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,700;0,800;1,300;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
 <style>
   :root {
-    --deep:  #0b1520;
-    --dark:  #111e30;
-    --mid:   #1e3350;
-    --steel: #4a7fa5;
-    --ice:   #7aaec7;
+    --deep:  #061A33;
+    --dark:  #0B2545;
+    --mid:   #123A66;
+    --steel: #0B80F5;
+    --ice:   #6CB4FF;
     --fog:   #f0f5f9;
     --muted: #5a7a90;
     --text:  #1a2e40;
   }
 
   * { margin:0; padding:0; box-sizing:border-box; }
-  html { scroll-behavior:smooth; background:#0b1520; }
+  html { scroll-behavior:smooth; background:#061A33; }
 
   body {
-    background:#0b1520;
+    background:#061A33;
     color:#ffffff;
     font-family:'DM Sans', sans-serif;
     font-weight:300;
@@ -34,7 +37,7 @@
     position:fixed; top:0; left:0; right:0; z-index:100;
     padding:1.5rem 1.8rem;
     display:flex; justify-content:space-between; align-items:center;
-    background:linear-gradient(to bottom, rgba(11,21,32,.95) 0%, rgba(11,21,32,0) 100%);
+    background:linear-gradient(to bottom, rgba(6,26,51,.95) 0%, rgba(6,26,51,0) 100%);
     border-bottom:none;
     opacity:0; animation:fadeDown .6s .1s forwards;
   }
@@ -45,10 +48,10 @@
     color:white; display:inline-block; white-space:nowrap; flex-shrink:0;
     text-decoration:none; font-variant-ligatures:none;
   }
-  .nav-logo .e { color:#7aaec7; }
+  .nav-logo .e { color:#6CB4FF; }
 
   .nav-cta {
-    background:#4a7fa5; color:white; border:none; cursor:pointer;
+    background:#0B80F5; color:white; border:none; cursor:pointer;
     padding:.6rem 1.2rem; font-family:'DM Sans',sans-serif;
     font-size:.78rem; letter-spacing:.04em;
     -webkit-appearance:none;
@@ -60,19 +63,19 @@
   .hero {
     position:relative;
     height:100vh;
-    background:#0b1520;
+    background:#061A33;
     overflow:hidden;
   }
 
   /* fades top/bottom */
   .hero-fade-top {
     position:absolute; top:0; left:0; right:0; height:180px; z-index:3;
-    background:linear-gradient(to bottom, #0b1520 25%, transparent);
+    background:linear-gradient(to bottom, #061A33 25%, transparent);
     pointer-events:none;
   }
   .hero-fade-bottom {
     position:absolute; bottom:0; left:0; right:0; height:180px; z-index:3;
-    background:linear-gradient(to top, #0b1520 25%, transparent);
+    background:linear-gradient(to top, #061A33 25%, transparent);
     pointer-events:none;
   }
 
@@ -99,17 +102,17 @@
 
   .hero-badge {
     display:inline-flex; align-items:center; gap:.5rem;
-    border:1px solid rgba(74,127,165,.3);
+    border:1px solid rgba(11,128,245,.3);
     padding:.4rem 1rem; border-radius:100px;
     font-size:.62rem; letter-spacing:.14em; text-transform:uppercase;
-    color:#7aaec7; margin-bottom:1.5rem;
-    background:rgba(11,21,32,.7);
+    color:#6CB4FF; margin-bottom:1.5rem;
+    background:rgba(6,26,51,.7);
     text-shadow:none;
     opacity:0; animation:fadeUp .7s .3s forwards;
   }
   .hero-badge-dot {
     width:6px; height:6px; border-radius:50%;
-    background:#7aaec7; animation:pulse 2s infinite; flex-shrink:0;
+    background:#6CB4FF; animation:pulse 2s infinite; flex-shrink:0;
   }
 
   .hero-tagline {
@@ -118,21 +121,21 @@
     line-height:.92; letter-spacing:-.05em;
   }
   .line-1 {
-    display:block; color:#7aaec7; font-style:italic; font-weight:300;
-    text-shadow:0 0 40px #0b1520, 0 0 80px #0b1520, 0 2px 20px rgba(0,0,0,1);
+    display:block; color:#6CB4FF; font-style:italic; font-weight:300;
+    text-shadow:0 0 40px #061A33, 0 0 80px #061A33, 0 2px 20px rgba(0,0,0,1);
     opacity:0; animation:fadeUp .9s .4s forwards;
   }
   .line-2 {
     display:block; color:#ffffff;
-    text-shadow:0 0 40px #0b1520, 0 0 80px #0b1520, 0 2px 20px rgba(0,0,0,1);
+    text-shadow:0 0 40px #061A33, 0 0 80px #061A33, 0 2px 20px rgba(0,0,0,1);
     opacity:0; animation:fadeUp .9s .55s forwards;
   }
-  .dot { color:#4a7fa5; }
+  .dot { color:#0B80F5; }
 
   .hero-sub {
     margin-top:1.5rem; font-size:.92rem;
     color:rgba(255,255,255,.9);
-    text-shadow:0 0 20px #0b1520, 0 0 40px #0b1520, 0 2px 8px rgba(0,0,0,1);
+    text-shadow:0 0 20px #061A33, 0 0 40px #061A33, 0 2px 8px rgba(0,0,0,1);
     max-width:320px; line-height:1.75;
     opacity:0; animation:fadeUp .8s .7s forwards;
   }
@@ -145,31 +148,31 @@
   }
 
   .btn-main {
-    background:#4a7fa5; color:white; border:none; cursor:pointer;
+    background:#0B80F5; color:white; border:none; cursor:pointer;
     padding:1rem 2.4rem; font-family:'DM Sans',sans-serif;
     font-size:.9rem; letter-spacing:.04em; width:100%; max-width:320px;
     -webkit-appearance:none; box-shadow:0 4px 24px rgba(0,0,0,.6);
     transition:background .2s;
   }
-  .btn-main:hover { background:#7aaec7; }
+  .btn-main:hover { background:#6CB4FF; }
 
   .btn-link {
     color:rgba(255,255,255,.5); font-size:.82rem; letter-spacing:.04em;
     cursor:pointer; border:none; background:none;
     font-family:'DM Sans',sans-serif;
-    text-shadow:0 0 10px #0b1520;
+    text-shadow:0 0 10px #061A33;
   }
 
   /* email cards */
   .email-card {
     border-radius:3px; overflow:hidden;
-    background:#111e30; border:1px solid rgba(74,127,165,.12);
+    background:#0B2545; border:1px solid rgba(11,128,245,.12);
     flex-shrink:0; opacity:.45;
   }
   .email-topbar {
-    background:#0b1520; padding:.4rem .65rem;
+    background:#061A33; padding:.4rem .65rem;
     display:flex; align-items:center; gap:.3rem;
-    border-bottom:1px solid rgba(74,127,165,.08);
+    border-bottom:1px solid rgba(11,128,245,.08);
   }
   .etb-dot { width:5px; height:5px; border-radius:50%; }
   .email-banner {
@@ -212,11 +215,11 @@
 
   /* ── SEÇÕES ESCURAS ── */
   .section-dark {
-    background:#0b1520;
+    background:#061A33;
     padding:5rem 1.8rem;
   }
   .section-dark2 {
-    background:#111e30;
+    background:#0B2545;
     padding:5rem 1.8rem;
   }
   .section-light {
@@ -230,8 +233,8 @@
     font-size:.62rem; letter-spacing:.22em; text-transform:uppercase;
     margin-bottom:1rem; display:block;
   }
-  .s-eyebrow.blue { color:#7aaec7; }
-  .s-eyebrow.steel { color:#4a7fa5; }
+  .s-eyebrow.blue { color:#6CB4FF; }
+  .s-eyebrow.steel { color:#0B80F5; }
 
   .s-title {
     font-family:'Plus Jakarta Sans',sans-serif;
@@ -242,20 +245,20 @@
   .s-title em { font-style:italic; font-weight:300; }
   .s-title.light { color:#ffffff; }
   .s-title.dark  { color:#1a2e40; }
-  .s-title .accent { color:#4a7fa5; }
+  .s-title .accent { color:#0B80F5; }
 
   /* ── TIMELINE ── */
   .timeline { position:relative; margin-bottom:3rem; }
   .timeline::before {
     content:''; position:absolute;
     left:1.4rem; top:2rem; bottom:2rem;
-    width:1px; background:rgba(74,127,165,.15);
+    width:1px; background:rgba(11,128,245,.15);
   }
 
   .tl-step { display:flex; gap:1.2rem; padding:1.2rem 0; }
   .tl-num {
     width:2.8rem; height:2.8rem; flex-shrink:0;
-    border:1px solid rgba(74,127,165,.2); border-radius:50%;
+    border:1px solid rgba(11,128,245,.2); border-radius:50%;
     background:white; display:flex; align-items:center; justify-content:center;
     font-size:.65rem; font-weight:500; color:#5a7a90; z-index:1;
   }
@@ -265,30 +268,30 @@
   .tl-time  {
     display:inline-block; margin-top:.4rem;
     font-size:.62rem; letter-spacing:.1em; text-transform:uppercase;
-    color:#5a7a90; background:rgba(74,127,165,.1); padding:.15rem .5rem;
+    color:#5a7a90; background:rgba(11,128,245,.1); padding:.15rem .5rem;
   }
 
   /* ── CONTRASTE ── */
   .cbox {
-    background:#0b1520; padding:2rem 1.8rem;
+    background:#061A33; padding:2rem 1.8rem;
     display:flex; align-items:center; gap:0;
     position:relative; overflow:hidden;
   }
   .cbox::before {
     content:''; position:absolute; inset:0;
-    background:radial-gradient(ellipse at 80% 50%, rgba(74,127,165,.15) 0%, transparent 65%);
+    background:radial-gradient(ellipse at 80% 50%, rgba(11,128,245,.15) 0%, transparent 65%);
   }
   .cbox-side { flex:1; position:relative; }
   .cbox-lbl { font-size:.58rem; letter-spacing:.16em; text-transform:uppercase; color:#5a7a90; margin-bottom:.3rem; }
-  .cbox-lbl.new { color:#7aaec7; opacity:.8; }
+  .cbox-lbl.new { color:#6CB4FF; opacity:.8; }
   .cbox-val {
     font-family:'Plus Jakarta Sans',sans-serif;
     font-weight:800; letter-spacing:-.04em;
     font-size:clamp(1.6rem,6vw,2.4rem);
   }
   .cbox-val.old { color:rgba(255,255,255,.2); }
-  .cbox-val.new { color:#7aaec7; }
-  .cbox-div { width:1px; height:50px; background:rgba(74,127,165,.2); margin:0 1.5rem; flex-shrink:0; }
+  .cbox-val.new { color:#6CB4FF; }
+  .cbox-div { width:1px; height:50px; background:rgba(11,128,245,.2); margin:0 1.5rem; flex-shrink:0; }
 
   /* ── STEPS ── */
   .steps { display:flex; flex-direction:column; gap:2px; }
@@ -296,19 +299,19 @@
   .step {
     padding:2rem 1.8rem;
     background:rgba(255,255,255,.02);
-    border:1px solid rgba(74,127,165,.1);
+    border:1px solid rgba(11,128,245,.1);
   }
 
   .step-n {
     font-family:'Plus Jakarta Sans',sans-serif;
     font-weight:800; font-size:2.4rem; letter-spacing:-.05em;
-    color:rgba(74,127,165,.2); line-height:1; margin-bottom:1rem;
+    color:rgba(11,128,245,.2); line-height:1; margin-bottom:1rem;
   }
   .step-title { font-weight:500; font-size:.95rem; color:white; margin-bottom:.4rem; }
   .step-desc  { font-size:.82rem; color:#5a7a90; line-height:1.7; }
   .step-tag   {
     display:inline-block; margin-top:.85rem;
-    background:#4a7fa5; color:white;
+    background:#0B80F5; color:white;
     font-size:.6rem; letter-spacing:.1em; text-transform:uppercase; padding:.2rem .6rem;
   }
 
@@ -317,14 +320,14 @@
   .stat {
     padding:2rem 1.8rem;
     background:rgba(255,255,255,.02);
-    border:1px solid rgba(74,127,165,.08);
+    border:1px solid rgba(11,128,245,.08);
   }
   .stat-val {
     font-family:'Plus Jakarta Sans',sans-serif;
     font-weight:800; letter-spacing:-.04em;
     font-size:clamp(2rem,8vw,3rem); color:white; margin-bottom:.3rem;
   }
-  .stat-val span { color:#7aaec7; }
+  .stat-val span { color:#6CB4FF; }
   .stat-label { font-size:.75rem; color:#5a7a90; line-height:1.5; }
 
   /* ── DEPOIMENTOS ── */
@@ -332,20 +335,20 @@
   .testi {
     padding:2rem 1.8rem;
     background:rgba(255,255,255,.02);
-    border:1px solid rgba(74,127,165,.08);
+    border:1px solid rgba(11,128,245,.08);
   }
   .testi-text {
     font-size:.88rem; line-height:1.8; color:rgba(255,255,255,.6);
     margin-bottom:1.2rem; font-style:italic;
   }
-  .testi-text::before { content:'" '; color:#7aaec7; font-style:normal; }
-  .testi-text::after  { content:' "'; color:#7aaec7; font-style:normal; }
+  .testi-text::before { content:'" '; color:#6CB4FF; font-style:normal; }
+  .testi-text::after  { content:' "'; color:#6CB4FF; font-style:normal; }
   .testi-author { display:flex; align-items:center; gap:.8rem; }
   .testi-av {
     width:34px; height:34px; border-radius:50%;
-    background:#1e3350; display:flex; align-items:center; justify-content:center;
+    background:#123A66; display:flex; align-items:center; justify-content:center;
     font-family:'Plus Jakarta Sans',sans-serif; font-weight:800; font-size:.75rem;
-    color:#7aaec7; flex-shrink:0;
+    color:#6CB4FF; flex-shrink:0;
   }
   .testi-name { font-weight:500; font-size:.83rem; color:white; }
   .testi-role { font-size:.7rem; color:#5a7a90; }
@@ -355,45 +358,45 @@
   .plan {
     padding:2rem 1.8rem;
     background:white;
-    border:1px solid rgba(74,127,165,.12);
+    border:1px solid rgba(11,128,245,.12);
     position:relative;
   }
-  .plan.featured { background:#0b1520; color:white; border-color:#4a7fa5; }
+  .plan.featured { background:#061A33; color:white; border-color:#0B80F5; }
   .plan-badge {
     display:inline-block; margin-bottom:1rem;
-    background:#4a7fa5; color:white;
+    background:#0B80F5; color:white;
     font-size:.58rem; letter-spacing:.14em; text-transform:uppercase; padding:.22rem .8rem;
   }
   .plan-name {
     font-family:'Plus Jakarta Sans',sans-serif; font-weight:700;
     font-size:.95rem; color:#1a2e40; margin-bottom:.2rem;
   }
-  .plan.featured .plan-name { color:#7aaec7; }
+  .plan.featured .plan-name { color:#6CB4FF; }
   .plan-desc {
     font-size:.75rem; color:#5a7a90; margin-bottom:1.2rem;
   }
   .plan.featured .plan-desc { color:rgba(255,255,255,.3); }
-  .plan-div { height:1px; background:rgba(74,127,165,.1); margin-bottom:1.2rem; }
+  .plan-div { height:1px; background:rgba(11,128,245,.1); margin-bottom:1.2rem; }
   .plan.featured .plan-div { background:rgba(255,255,255,.1); }
 
   .plan-tiers { display:flex; flex-direction:column; gap:2px; margin-bottom:1.5rem; }
   .plan-tier {
     display:flex; justify-content:space-between; align-items:center;
     padding:.55rem .75rem;
-    background:rgba(74,127,165,.05);
-    border:1px solid rgba(74,127,165,.1);
+    background:rgba(11,128,245,.05);
+    border:1px solid rgba(11,128,245,.1);
   }
   .plan-tier.active {
-    background:rgba(74,127,165,.1);
-    border-color:rgba(74,127,165,.3);
+    background:rgba(11,128,245,.1);
+    border-color:rgba(11,128,245,.3);
   }
   .plan-tier.expansion {
     background:transparent;
-    border-color:rgba(74,127,165,.07);
+    border-color:rgba(11,128,245,.07);
     border-style:dashed;
   }
   .plan.featured .plan-tier { background:rgba(255,255,255,.04); border-color:rgba(255,255,255,.08); }
-  .plan.featured .plan-tier.active { background:rgba(122,174,199,.1); border-color:rgba(122,174,199,.35); }
+  .plan.featured .plan-tier.active { background:rgba(108,180,255,.1); border-color:rgba(108,180,255,.35); }
   .plan.featured .plan-tier.expansion { background:transparent; border-color:rgba(255,255,255,.07); }
   .plan-tier-info { display:flex; flex-direction:column; gap:.1rem; }
   .plan-tier-name {
@@ -412,22 +415,22 @@
     white-space:nowrap;
   }
   .plan.featured .plan-tier-price { color:rgba(255,255,255,.85); }
-  .plan-tier.active .plan-tier-price { color:#4a7fa5; }
-  .plan.featured .plan-tier.active .plan-tier-price { color:#7aaec7; }
+  .plan-tier.active .plan-tier-price { color:#0B80F5; }
+  .plan.featured .plan-tier.active .plan-tier-price { color:#6CB4FF; }
   .plan-tier.expansion .plan-tier-price { color:#5a7a90; font-weight:400; font-size:.8rem; }
   .plan.featured .plan-tier.expansion .plan-tier-price { color:rgba(255,255,255,.3); }
 
   .plan-features { list-style:none; display:flex; flex-direction:column; gap:.65rem; margin-bottom:1.5rem; }
   .plan-features li { font-size:.82rem; color:#5a7a90; display:flex; gap:.55rem; line-height:1.5; }
   .plan.featured .plan-features li { color:rgba(255,255,255,.5); }
-  .plan-features li::before { content:'✓'; color:#4a7fa5; flex-shrink:0; font-weight:500; }
+  .plan-features li::before { content:'✓'; color:#0B80F5; flex-shrink:0; font-weight:500; }
   .plan-btn {
     width:100%; padding:.9rem; border:none; cursor:pointer;
     font-family:'DM Sans',sans-serif; font-size:.85rem; letter-spacing:.04em;
     -webkit-appearance:none;
   }
-  .plan-btn.outline { background:transparent; border:1px solid rgba(74,127,165,.25); color:#4a7fa5; }
-  .plan-btn.solid   { background:#4a7fa5; color:white; }
+  .plan-btn.outline { background:transparent; border:1px solid rgba(11,128,245,.25); color:#0B80F5; }
+  .plan-btn.solid   { background:#0B80F5; color:white; }
 
   .plan-note {
     margin-top:1rem; font-size:.68rem; color:#aab8c2;
@@ -437,12 +440,12 @@
 
   /* ── FAQ ── */
   .faq-list { margin-top:2rem; }
-  .faq-item { border-bottom:1px solid rgba(74,127,165,.1); padding:1.3rem 0; cursor:pointer; }
+  .faq-item { border-bottom:1px solid rgba(11,128,245,.1); padding:1.3rem 0; cursor:pointer; }
   .faq-q {
     display:flex; justify-content:space-between; align-items:center;
     font-weight:500; font-size:.9rem; color:white; gap:1rem;
   }
-  .faq-icon { color:#7aaec7; font-size:1.2rem; flex-shrink:0; transition:transform .25s; }
+  .faq-icon { color:#6CB4FF; font-size:1.2rem; flex-shrink:0; transition:transform .25s; }
   .faq-item.open .faq-icon { transform:rotate(45deg); }
   .faq-a {
     font-size:.83rem; color:#5a7a90; line-height:1.8;
@@ -452,8 +455,8 @@
 
   /* ── CTA FINAL ── */
   .section-cta {
-    background:#0b1520;
-    border-top:1px solid rgba(74,127,165,.08);
+    background:#061A33;
+    border-top:1px solid rgba(11,128,245,.08);
     padding:7rem 1.8rem;
     text-align:center; position:relative; overflow:hidden;
   }
@@ -461,7 +464,7 @@
     content:''; position:absolute; top:40%; left:50%;
     transform:translate(-50%,-50%);
     width:100vw; height:50vh;
-    background:radial-gradient(ellipse at center, rgba(74,127,165,.13) 0%, rgba(11,21,32,0) 70%);
+    background:radial-gradient(ellipse at center, rgba(11,128,245,.13) 0%, rgba(6,26,51,0) 70%);
   }
 
   .cta-tagline {
@@ -470,8 +473,8 @@
     font-size:clamp(2.8rem,12vw,7rem); line-height:.93;
     color:white; position:relative; margin-bottom:2rem;
   }
-  .cta-tagline em { font-style:italic; color:#7aaec7; font-weight:300; }
-  .cta-tagline .dot { color:#4a7fa5; }
+  .cta-tagline em { font-style:italic; color:#6CB4FF; font-weight:300; }
+  .cta-tagline .dot { color:#0B80F5; }
 
   .cta-sub {
     font-size:.9rem; color:rgba(255,255,255,.28);
@@ -480,7 +483,7 @@
 
   .cta-btn {
     display:inline-block;
-    background:#4a7fa5; color:white; border:none; cursor:pointer;
+    background:#0B80F5; color:white; border:none; cursor:pointer;
     padding:1.1rem 3rem; font-family:'DM Sans',sans-serif;
     font-size:.9rem; letter-spacing:.06em; position:relative;
     -webkit-appearance:none; width:100%; max-width:320px;
@@ -490,8 +493,8 @@
 
   /* ── FOOTER ── */
   footer {
-    background:#0b1520;
-    border-top:1px solid rgba(74,127,165,.07);
+    background:#061A33;
+    border-top:1px solid rgba(11,128,245,.07);
     padding:2.5rem 1.8rem;
     display:flex; flex-direction:column; align-items:center; gap:1.5rem; text-align:center;
   }
@@ -500,13 +503,68 @@
     font-size:1.1rem; letter-spacing:-.04em;
     color:white; display:flex; align-items:center; gap:.45rem;
   }
-  .footer-logo .e { color:#7aaec7; }
+  .footer-logo .e { color:#6CB4FF; }
   .footer-links { display:flex; gap:1.5rem; flex-wrap:wrap; justify-content:center; }
   .footer-links a {
     text-decoration:none; font-size:.7rem; letter-spacing:.08em;
     text-transform:uppercase; color:rgba(255,255,255,.2);
   }
   .footer-copy { font-size:.68rem; color:rgba(255,255,255,.12); }
+
+  /* ── LOGO ── */
+  .logo-img { display:block; height:22px; width:auto; }
+  .footer-logo .logo-img { height:20px; }
+
+  /* ── HERO extra ── */
+  .hero-kicker {
+    margin-top:1.4rem; font-family:'Plus Jakarta Sans',sans-serif; font-weight:700;
+    font-size:clamp(1rem,3.6vw,1.35rem); letter-spacing:-.02em; color:#6CB4FF;
+    text-shadow:0 0 20px #061A33, 0 2px 8px rgba(0,0,0,1);
+    opacity:0; animation:fadeUp .8s .65s forwards;
+  }
+
+  /* ── TEXTO CORRIDO ── */
+  .lead { font-size:1rem; line-height:1.8; max-width:640px; margin-bottom:1.1rem; }
+  .section-light .lead { color:#3a5468; }
+  .section-dark .lead, .section-dark2 .lead { color:rgba(255,255,255,.62); }
+  .lead strong { font-weight:500; }
+  .section-light .lead strong { color:#0B2545; }
+  .section-dark .lead strong, .section-dark2 .lead strong { color:#ffffff; }
+  .punch {
+    font-family:'Plus Jakarta Sans',sans-serif; font-weight:800; letter-spacing:-.03em;
+    font-size:clamp(1.25rem,4.5vw,1.7rem); line-height:1.25; margin-top:2rem; max-width:640px;
+  }
+  .section-light .punch { color:#0B80F5; }
+  .section-dark .punch, .section-dark2 .punch { color:#6CB4FF; }
+  .s-title.tight { margin-bottom:1.6rem; }
+
+  /* ── ENTENDER / CRIAR / ENVIAR ── */
+  .flow { display:grid; grid-template-columns:1fr; gap:2px; margin-top:1rem; }
+  .flow-phase {
+    font-size:.6rem; letter-spacing:.16em; text-transform:uppercase; color:#6CB4FF;
+    margin-bottom:.6rem; display:block;
+  }
+
+  /* ── INTEGRAÇÕES ── */
+  .int-group { margin-bottom:1.6rem; }
+  .int-label { font-size:.62rem; letter-spacing:.16em; text-transform:uppercase; color:#5a7a90; margin-bottom:.7rem; display:block; }
+  .chips { display:flex; flex-wrap:wrap; gap:.5rem; }
+  .chip {
+    font-family:'Plus Jakarta Sans',sans-serif; font-weight:700; font-size:.85rem;
+    padding:.5rem .95rem; border:1px solid rgba(11,128,245,.25); color:#0B2545; background:#ffffff;
+  }
+  .chip.soon { color:#5a7a90; background:transparent; border-style:dashed; }
+  .int-note { font-size:.75rem; color:#5a7a90; font-style:italic; margin-top:.4rem; }
+
+  /* ── MCP ── */
+  .chat-demo {
+    margin-top:2rem; max-width:560px; border:1px solid rgba(11,128,245,.18);
+    background:rgba(255,255,255,.03); padding:1.4rem; display:flex; flex-direction:column; gap:.8rem;
+  }
+  .bubble { font-size:.85rem; line-height:1.6; padding:.75rem 1rem; max-width:88%; }
+  .bubble.me { align-self:flex-end; background:#0B80F5; color:white; }
+  .bubble.ai { align-self:flex-start; background:rgba(255,255,255,.06); color:rgba(255,255,255,.75); }
+  .bubble.ai b { color:#6CB4FF; font-weight:500; }
 
   /* ── REVEAL ── */
   .reveal { opacity:0; transform:translateY(24px); transition:opacity .7s ease, transform .7s ease; }
@@ -521,7 +579,7 @@
 
   /* desktop */
   @media (min-width:768px) {
-    nav ul { display:flex; gap:2rem; }
+    nav ul { display:flex; gap:2rem; list-style:none; }
     nav ul a { text-decoration:none; color:rgba(255,255,255,.32); font-size:.78rem; letter-spacing:.08em; text-transform:uppercase; }
     nav { padding:1.5rem 4rem; }
 
@@ -540,6 +598,9 @@
     .section-cta > * { max-width:860px; margin-left:auto; margin-right:auto; }
 
     .steps { flex-direction:row; gap:0; }
+    .flow { grid-template-columns:repeat(3,1fr); gap:0; }
+    .flow .step { padding:2.5rem 2rem; }
+    .lead { font-size:1.05rem; }
     .step { flex:1; padding:3rem 2.5rem; }
     .step-n { font-size:3.5rem; }
     .step-title { font-size:1.05rem; }
@@ -580,151 +641,156 @@
 
     .plan-tiers { gap:3px; }
   }
+
+  .hero2 {
+    position:relative; overflow:hidden; min-height:100vh;
+    background:radial-gradient(ellipse at 75% 30%, #0D3F7A 0%, #08264B 40%, #061A33 75%);
+    display:flex; align-items:center; padding:7rem 1.4rem 4rem;
+  }
+  .hero2::after {
+    content:''; position:absolute; inset:0; pointer-events:none;
+    background-image:linear-gradient(rgba(108,180,255,.05) 1px, transparent 1px), linear-gradient(90deg, rgba(108,180,255,.05) 1px, transparent 1px);
+    background-size:48px 48px; mask-image:radial-gradient(ellipse at 60% 40%, black 20%, transparent 70%);
+    -webkit-mask-image:radial-gradient(ellipse at 60% 40%, black 20%, transparent 70%);
+  }
+  .hero2-inner { position:relative; z-index:2; width:100%; max-width:1180px; margin:0 auto; display:flex; flex-direction:column; gap:3rem; align-items:center; }
+  .hero2-text { text-align:center; display:flex; flex-direction:column; align-items:center; }
+  .hero2 .hero-tagline { font-size:clamp(3rem,13vw,5.6rem); }
+  .hero2 .line-1, .hero2 .line-2, .hero2 .hero-sub, .hero2 .hero-kicker { text-shadow:none; }
+
+  /* janela do produto */
+  .demo { width:100%; max-width:470px; background:#0B2545; border:1px solid rgba(108,180,255,.18); border-radius:14px;
+    box-shadow:0 30px 80px rgba(0,0,0,.55), 0 0 0 1px rgba(255,255,255,.03), 0 0 120px rgba(11,128,245,.18); overflow:hidden; position:relative;
+    opacity:0; animation:fadeUp .9s .5s forwards; }
+  .demo-bar { display:flex; align-items:center; gap:.4rem; padding:.7rem .9rem; border-bottom:1px solid rgba(108,180,255,.1); }
+  .demo-bar i { width:9px; height:9px; border-radius:50%; background:rgba(255,255,255,.14); display:block; }
+  .demo-bar span { margin-left:.6rem; font-size:.7rem; color:rgba(255,255,255,.4); letter-spacing:.04em; }
+  .demo-body { padding:1rem 1rem 3.8rem; }
+  .prompt { display:flex; align-items:center; gap:.6rem; background:#061A33; border:1px solid rgba(108,180,255,.2); border-radius:10px; padding:.7rem .8rem; font-size:.8rem; color:#fff; min-height:44px; }
+  .prompt .typed { white-space:nowrap; overflow:hidden; border-right:2px solid #6CB4FF; width:0; animation:type 2.2s steps(46,end) .9s forwards, caret .8s step-end infinite; }
+  .prompt .send { margin-left:auto; flex-shrink:0; width:26px; height:26px; border-radius:7px; background:#0B80F5; display:flex; align-items:center; justify-content:center; color:#fff; font-size:.8rem; }
+
+  .mail { margin-top:.9rem; background:#fff; border-radius:8px; overflow:hidden; color:#1a2e40; }
+  .mail > * { opacity:0; transform:translateY(10px); }
+  .m-head { display:flex; justify-content:center; padding:.55rem; border-bottom:1px solid #eef2f6; font-family:'Plus Jakarta Sans',sans-serif; font-weight:800; font-size:.72rem; letter-spacing:.12em; color:#111; animation:pop .5s 3.3s forwards; }
+  .m-banner { height:120px; background:linear-gradient(120deg,#111 0%,#2b2b2b 55%,#FF5A1F 160%); position:relative; display:flex; flex-direction:column; justify-content:center; padding:0 1.1rem; color:#fff; animation:pop .5s 3.7s forwards; }
+  .m-banner b { font-family:'Plus Jakarta Sans',sans-serif; font-weight:800; font-size:1.35rem; letter-spacing:-.03em; line-height:1; }
+  .m-banner small { font-size:.62rem; letter-spacing:.14em; text-transform:uppercase; color:#FF8A57; margin-top:.35rem; }
+  .m-banner::after { content:''; position:absolute; right:14px; top:16px; width:88px; height:88px; border-radius:50%; background:radial-gradient(circle at 35% 35%, #FFB089, #FF5A1F 60%, #8a2a08); opacity:.95; }
+  .m-text { padding:.75rem 1rem .2rem; animation:pop .5s 4.1s forwards; }
+  .m-text div { height:6px; border-radius:3px; background:#e3e9ef; margin-bottom:.35rem; }
+  .m-prods { display:grid; grid-template-columns:repeat(3,1fr); gap:.5rem; padding:.5rem 1rem; animation:pop .5s 4.5s forwards; }
+  .m-prod { border:1px solid #eef2f6; border-radius:6px; padding:.45rem; text-align:center; }
+  .m-prod .ph { height:44px; border-radius:4px; margin-bottom:.35rem; }
+  .m-prod .nm { height:4px; background:#e3e9ef; border-radius:2px; margin:0 auto .3rem; width:80%; }
+  .m-prod .pr { font-size:.58rem; font-weight:700; color:#111; }
+  .m-cta { margin:.5rem auto .9rem; width:46%; text-align:center; background:#FF5A1F; color:#fff; font-size:.62rem; font-weight:700; letter-spacing:.08em; padding:.5rem 0; border-radius:4px; animation:pop .5s 4.9s forwards; }
+
+  .toast { position:absolute; left:50%; bottom:16px; transform:translate(-50%,20px); opacity:0; white-space:nowrap;
+    background:#061A33; border:1px solid rgba(108,180,255,.35); color:#fff; font-size:.76rem; padding:.6rem .95rem; border-radius:999px;
+    display:flex; align-items:center; gap:.5rem; box-shadow:0 10px 30px rgba(0,0,0,.5); animation:toast .6s 5.7s forwards; }
+  .toast .ok { width:18px; height:18px; border-radius:50%; background:#22C55E; display:flex; align-items:center; justify-content:center; font-size:.65rem; }
+  .toast b { color:#6CB4FF; font-weight:500; }
+
+  @keyframes type { to { width:100%; } }
+  @keyframes caret { 50% { border-color:transparent; } }
+  @keyframes pop { to { opacity:1; transform:translateY(0); } }
+  @keyframes toast { to { opacity:1; transform:translate(-50%,0); } }
+
+  @media (min-width:900px) {
+    .hero2 { padding:6rem 4rem 3rem; }
+    .hero2-inner { flex-direction:row; justify-content:space-between; gap:4rem; }
+    .hero2-text { text-align:left; align-items:flex-start; flex:1; }
+    .hero2 .hero-sub { max-width:470px; }
+    .hero2 .hero-btns { justify-content:flex-start; }
+    .demo { flex:0 0 470px; }
+  }
 </style>
 </head>
 <body>
 
 <!-- NAV -->
 <nav>
-  <a href="#" class="nav-logo"><span style="letter-spacing:-.04em;white-space:nowrap">Rev<span class="e">e</span>ny</span></a>
+  <a href="#" class="nav-logo" aria-label="Reveny"><img class="logo-img" src="brand/reveny-logo-branco.svg" alt="Reveny"></a>
   <ul>
     <li><a href="#how">Como funciona</a></li>
+    <li><a href="#integracoes">Integrações</a></li>
     <li><a href="#pricing">Planos</a></li>
     <li><a href="#faq">FAQ</a></li>
   </ul>
-  <button class="nav-cta" onclick="agendarDemo()">Agendar demonstração</button>
+  <button class="nav-cta" onclick="agendarDemo()">Fale com nosso time</button>
 </nav>
 
-<!-- HERO TICKER -->
-<section class="hero">
-  <div class="hero-fade-top"></div>
-  <div class="hero-fade-bottom"></div>
-
-  <!-- ticker preenchido por JS -->
-  <div class="ticker-grid" id="ticker"></div>
-
-  <!-- texto central -->
-  <div class="hero-center">
+<!-- HERO -->
+<section class="hero2">
+  <div class="hero2-inner">
+    <div class="hero2-text">
     <div class="hero-badge">
       <div class="hero-badge-dot"></div>
-      Novo · Geração de email em segundos
+      Para agências de CRM
     </div>
     <h1 class="hero-tagline">
       <span class="line-1">A gente cria,</span>
       <span class="line-2">você envia<span class="dot">.</span></span>
     </h1>
+    <div class="hero-kicker">CRM mais inteligente. Operação mais eficiente.</div>
     <p class="hero-sub">
-      Cole a URL do produto. A Reveny escreve o copy, gera o banner e entrega o email completo. <strong>Em segundos.</strong>
+      A Reveny conecta a loja e a ferramenta de envio dos seus clientes, <strong>mostra o que fazer e entrega a campanha pronta</strong>, com a cara de cada marca.
     </p>
     <div class="hero-btns">
-      <button class="btn-main" onclick="agendarDemo()">Agendar demonstração</button>
-      <button class="btn-link" onclick="document.getElementById('how').scrollIntoView({behavior:'smooth'})">Ver como funciona →</button>
+      <button class="btn-main" onclick="document.getElementById('how').scrollIntoView({behavior:'smooth'})">Conheça a Reveny</button>
+      <button class="btn-link" onclick="agendarDemo()">Fale com nosso time →</button>
+    </div>
+    </div>
+    <div class="demo" id="demo" aria-hidden="true">
+      <div class="demo-bar"><i></i><i></i><i></i><span>Reveny · Loja Exemplo</span></div>
+      <div class="demo-body">
+        <div class="prompt"><span class="typed">Campanha de Black Friday com os 3 mais vendidos</span><span class="send">↑</span></div>
+        <div class="mail">
+          <div class="m-head">LOJA EXEMPLO</div>
+          <div class="m-banner"><b>BLACK<br>FRIDAY</b><small>Até 50% off · só esta semana</small></div>
+          <div class="m-text"><div style="width:92%"></div><div style="width:78%"></div><div style="width:60%"></div></div>
+          <div class="m-prods">
+            <div class="m-prod"><div class="ph" style="background:linear-gradient(135deg,#F3E7DA,#D9C3A9)"></div><div class="nm"></div><div class="pr">R$ 129,90</div></div>
+            <div class="m-prod"><div class="ph" style="background:linear-gradient(135deg,#E2E8F0,#A8B5C6)"></div><div class="nm"></div><div class="pr">R$ 89,90</div></div>
+            <div class="m-prod"><div class="ph" style="background:linear-gradient(135deg,#FCE1D6,#F2A488)"></div><div class="nm"></div><div class="pr">R$ 149,90</div></div>
+          </div>
+          <div class="m-cta">APROVEITAR</div>
+        </div>
+      </div>
+      <div class="toast"><span class="ok">✓</span>Rascunho enviado para a <b>Flowbiz</b></div>
     </div>
   </div>
 </section>
-
-<!-- ticker JS -->
 <script>
-(function(){
-  const emails = [
-    { t:"Nova Coleção\nVerão 2025", s:"Só hoje · Frete grátis", c1:"#c8a0ff", bg:"linear-gradient(135deg,#1a0a2e,#3d1f6e)", line:"rgba(144,96,224,.22)", cta:"#9060e0" },
-    { t:"Cuide-se\nDe Você",        s:"Até 40% off",            c1:"#ffb0c8", bg:"linear-gradient(135deg,#2e0a1a,#7a2040)", line:"rgba(224,96,128,.22)", cta:"#e06080" },
-    { t:"Prime Day\nTech",           s:"Ofertas por 48h",        c1:"#80c8ff", bg:"linear-gradient(135deg,#0a1a2e,#1e4a7a)", line:"rgba(64,144,208,.22)", cta:"#4090d0" },
-    { t:"Kits\nGourmet",             s:"Entrega hoje",           c1:"#b0ff90", bg:"linear-gradient(135deg,#1a2a0a,#3d6e1f)", line:"rgba(80,160,48,.22)",  cta:"#50a030" },
-    { t:"Run\nSeason",               s:"Tênis de corrida",       c1:"#ffa080", bg:"linear-gradient(135deg,#1a0a0a,#7a2020)", line:"rgba(208,64,32,.22)",  cta:"#d04020" },
-    { t:"Sala Nova\nVida Nova",       s:"Parcelado 10x",          c1:"#80ffe0", bg:"linear-gradient(135deg,#0a1a1a,#1f5a5a)", line:"rgba(32,160,128,.22)", cta:"#20a080" },
-    { t:"De Volta\nÀs Aulas",        s:"Lápis, tudo e mais",     c1:"#ffd080", bg:"linear-gradient(135deg,#1a150a,#6e4a1f)", line:"rgba(192,128,32,.22)", cta:"#c08020" },
-    { t:"Dia dos\nNamorados",        s:"Coleção especial",       c1:"#fff080", bg:"linear-gradient(135deg,#1a1a0a,#5a5a1f)", line:"rgba(160,160,32,.22)", cta:"#a0a020" },
-    { t:"Seu Pet\nMerece",           s:"Ração premium",          c1:"#90ffb0", bg:"linear-gradient(135deg,#0a1a10,#1f6e3d)", line:"rgba(48,160,80,.22)",  cta:"#30a050" },
-    { t:"Inverno\n2025",             s:"Peças novas todo dia",   c1:"#d0a0ff", bg:"linear-gradient(135deg,#150a2e,#3d1f8e)", line:"rgba(128,64,208,.22)", cta:"#8040d0" },
-    { t:"Beleza\nSem Limite",        s:"Kit especial",           c1:"#ffc0d8", bg:"linear-gradient(135deg,#2e0a20,#8a2050)", line:"rgba(208,80,128,.22)", cta:"#d05080" },
-    { t:"Build\nYour PC",            s:"Componentes top",        c1:"#60d0ff", bg:"linear-gradient(135deg,#0a1520,#1a3a6a)", line:"rgba(32,128,192,.22)", cta:"#2080c0" },
-  ];
-  function card(e){
-    const lines=e.t.split('\n'), fs=lines[0].length>8?'.6rem':'.72rem', bh=52+Math.floor(Math.random()*18);
-    return `<div class="email-card"><div class="email-topbar"><div class="etb-dot" style="background:${e.c1}"></div><div class="etb-dot" style="background:rgba(255,255,255,.14)"></div><div class="etb-dot" style="background:rgba(255,255,255,.07)"></div></div><div class="email-banner" style="height:${bh}px;background:${e.bg}"><div class="banner-inner"><div class="banner-title" style="font-size:${fs};color:white">${lines.join('<br>')}</div><div class="banner-sub" style="color:${e.c1}">${e.s}</div></div></div><div class="email-body"><div class="email-line" style="background:${e.line};width:92%"></div><div class="email-line" style="background:${e.line};width:74%"></div><div class="email-line" style="background:${e.line};width:83%"></div><div class="email-line" style="background:${e.line};width:52%"></div><div class="email-cta" style="background:${e.cta}"></div></div></div>`;
-  }
-  const grid=document.getElementById('ticker');
-  const COL_W=200, GAP=10;
-  const cols=Math.max(3, Math.floor((window.innerWidth+GAP)/(COL_W+GAP)));
-  const speeds=[28,22,30,24,26,32,20,34,26,28];
-  const dirs=['scrollUp','scrollDown','scrollUp','scrollDown','scrollUp','scrollDown','scrollUp','scrollDown','scrollUp','scrollDown'];
-  for(let i=0;i<cols;i++){
-    const col=document.createElement('div');
-    col.className='ticker-col';
-    col.style.animation=`${dirs[i%dirs.length]} ${speeds[i%speeds.length]}s linear infinite`;
-    const sh=[...emails].sort(()=>Math.random()-.5);
-    col.innerHTML=[...sh,...sh].map(card).join('');
-    grid.appendChild(col);
-  }
-})();
+  // reinicia a demonstração a cada 11 s
+  setInterval(function(){ var d=document.getElementById('demo'); var c=d.cloneNode(true); c.style.animation='none'; c.style.opacity='1'; d.parentNode.replaceChild(c,d); }, 11000);
 </script>
 
 <!-- PARCEIROS -->
 <div class="partners reveal">
   <div class="partners-inner">
-    <span class="partners-label">Compatível com</span>
+    <span class="partners-label">Integrado com</span>
     <div class="partners-sep"></div>
-    <span class="p-logo">Shopify</span>
-    <span class="p-logo">VTEX</span>
-    <span class="p-logo">Nuvemshop</span>
+    <span class="p-logo">Flowbiz</span>
     <span class="p-logo">Klaviyo</span>
-    <span class="p-logo">RD Station</span>
+    <span class="p-logo">Martz</span>
+    <span class="p-logo">Nuvemshop</span>
+    <span class="p-logo">Magazord</span>
+    <span class="p-logo">Google Shopping</span>
   </div>
 </div>
 
 <!-- PROBLEMA -->
-<section class="section-light">
+<section class="section-dark">
   <div class="reveal">
-    <span class="s-eyebrow steel">O problema</span>
-    <h2 class="s-title dark">Criar um email do zero<br><em style="color:#4a7fa5">consome o seu dia.</em></h2>
+    <span class="s-eyebrow blue">O problema</span>
+    <h2 class="s-title light tight">Sua agência não precisa de mais uma ferramenta.<br><em style="color:#6CB4FF">Precisa de um caminho mais curto.</em></h2>
   </div>
-
-  <div class="timeline reveal">
-    <div class="tl-step">
-      <div class="tl-num">01</div>
-      <div class="tl-body">
-        <div class="tl-title">Você abre o editor em branco</div>
-        <div class="tl-desc">Qual o assunto? Qual o tom? Por onde começa? A página em branco paralisa.</div>
-        <span class="tl-time">⏱ 15 min só pra começar</span>
-      </div>
-    </div>
-    <div class="tl-step">
-      <div class="tl-num">02</div>
-      <div class="tl-body">
-        <div class="tl-title">Escreve o copy na tentativa e erro</div>
-        <div class="tl-desc">Rascunho, reescreve, descarta. O produto é bom mas as palavras não vêm.</div>
-        <span class="tl-time">⏱ 1–2 horas de copy</span>
-      </div>
-    </div>
-    <div class="tl-step">
-      <div class="tl-num">03</div>
-      <div class="tl-body">
-        <div class="tl-title">O banner ainda não existe</div>
-        <div class="tl-desc">Canva, ajuste de fonte, cor errada, exporta, percebe que ficou feio, refaz.</div>
-        <span class="tl-time">⏱ + 1 hora de design</span>
-      </div>
-    </div>
-    <div class="tl-step">
-      <div class="tl-num">04</div>
-      <div class="tl-body">
-        <div class="tl-title">Monta, revisa, aprova, envia</div>
-        <div class="tl-desc">Só então o email sai — meio dia depois do que deveria ter saído.</div>
-        <span class="tl-time">⏱ + 30 min de montagem</span>
-      </div>
-    </div>
-  </div>
-
-  <div class="cbox reveal">
-    <div class="cbox-side">
-      <div class="cbox-lbl">Jeito atual</div>
-      <div class="cbox-val old">3–4 horas</div>
-    </div>
-    <div class="cbox-div"></div>
-    <div class="cbox-side">
-      <div class="cbox-lbl new">Com Reveny</div>
-      <div class="cbox-val new">47 segundos</div>
-    </div>
+  <div class="reveal">
+    <p class="lead">Os dados ficam numa plataforma e as campanhas em outra. A criação é manual, e cada estratégia custa horas de trabalho repetitivo.</p>
+    <p class="lead">Quanto mais clientes, mais trabalho. E o tempo que deveria ir para a estratégia acaba indo para a execução.</p>
+    <p class="punch">A Reveny junta essas etapas num lugar só, para sua equipe produzir mais sem precisar crescer no mesmo ritmo.</p>
   </div>
 </section>
 
@@ -732,54 +798,120 @@
 <section class="section-dark2" id="how">
   <div class="reveal">
     <span class="s-eyebrow blue">Como funciona</span>
-    <h2 class="s-title light">Três passos.<br><em style="color:#7aaec7">Um email pronto.</em></h2>
+    <h2 class="s-title light">Entender. Criar.<br><em style="color:#6CB4FF">Enviar.</em></h2>
   </div>
 
-  <div class="steps">
+  <div class="flow">
     <div class="step reveal">
+      <span class="flow-phase">Entender</span>
       <div class="step-n">01</div>
-      <div class="step-title">Cole a URL do produto</div>
-      <div class="step-desc">Qualquer produto, qualquer loja. A Reveny lê nome, descrição, preço e imagens automaticamente.</div>
-      <span class="step-tag">Shopify · VTEX · Nuvemshop</span>
+      <div class="step-title">Entender a conta</div>
+      <div class="step-desc">Loja e ferramenta de envio conectadas, lado a lado. Veja em relatórios simples quanto cada campanha vendeu, o que a loja mais vende e onde estão as oportunidades de cada marca.</div>
     </div>
     <div class="step reveal d1">
+      <span class="flow-phase">Criar</span>
       <div class="step-n">02</div>
-      <div class="step-title">A gente cria</div>
-      <div class="step-desc">Copy persuasivo + banner visual gerados em segundos, específicos pro produto e nicho.</div>
-      <span class="step-tag">Copy + Banner incluso</span>
+      <div class="step-title">Criar a campanha</div>
+      <div class="step-desc">Descreva o que você precisa e receba o e-mail montado: banner, texto, produtos e botão. Tudo segue as cores, o estilo e o jeito de falar da marca, e cada detalhe continua editável.</div>
     </div>
     <div class="step reveal d2">
+      <span class="flow-phase">Criar</span>
       <div class="step-n">03</div>
-      <div class="step-title">Você envia</div>
-      <div class="step-desc">Email completo, pronto para disparar na sua plataforma de CRM preferida.</div>
-      <span class="step-tag">Klaviyo · RD · Mailchimp</span>
+      <div class="step-title">E-mail e WhatsApp juntos</div>
+      <div class="step-desc">Cada campanha pode sair também com a mensagem de WhatsApp pronta, com texto, imagem e botões, na mesma linguagem do e-mail.</div>
     </div>
+    <div class="step reveal">
+      <span class="flow-phase">Enviar</span>
+      <div class="step-n">04</div>
+      <div class="step-title">Enviar para a sua plataforma</div>
+      <div class="step-desc">Mande a campanha como rascunho para a ferramenta de disparo, sem montar tudo de novo. Sua equipe revisa e decide quando enviar.</div>
+    </div>
+    <div class="step reveal d1">
+      <span class="flow-phase">Escalar</span>
+      <div class="step-n">05</div>
+      <div class="step-title">Várias marcas, uma operação só</div>
+      <div class="step-desc">Cada cliente tem sua identidade, seus dados e suas plataformas. Na Reveny, sua agência cuida de todos no mesmo lugar, sem obrigar ninguém a trocar de CRM.</div>
+    </div>
+  </div>
+</section>
+
+<!-- IA DA MARCA -->
+<section class="section-light">
+  <div class="reveal">
+    <span class="s-eyebrow steel">IA com a marca</span>
+    <h2 class="s-title dark tight">Uma IA que conhece a marca<br><em style="color:#0B80F5">antes de criar.</em></h2>
+  </div>
+  <div class="reveal">
+    <p class="lead">Nenhuma campanha deveria começar de uma página em branco.</p>
+    <p class="lead">A Reveny lê o site da marca e aprende as cores, o estilo e o tom de voz dela. Junto com os dados da loja, isso faz a IA criar a partir da marca, e não só a partir de um comando.</p>
+    <p class="punch">Você define o objetivo. A Reveny entrega a campanha.</p>
+  </div>
+</section>
+
+<!-- INTEGRAÇÕES -->
+<section class="section-light" id="integracoes" style="padding-top:0">
+  <div class="reveal">
+    <span class="s-eyebrow steel">Integrações</span>
+    <h2 class="s-title dark tight">Funciona com as plataformas<br><em style="color:#0B80F5">que sua agência já usa.</em></h2>
+  </div>
+  <div class="reveal">
+    <div class="int-group">
+      <span class="int-label">Integradas</span>
+      <div class="chips">
+        <span class="chip">Flowbiz</span><span class="chip">Klaviyo</span><span class="chip">Martz</span>
+        <span class="chip">Nuvemshop</span><span class="chip">Magazord</span><span class="chip">Google Shopping</span>
+      </div>
+    </div>
+    <div class="int-group">
+      <span class="int-label">Em liberação</span>
+      <div class="chips">
+        <span class="chip soon">Shopify</span><span class="chip soon">VTEX</span><span class="chip soon">Uappi</span>
+        <span class="chip soon">Wbuy</span><span class="chip soon">GA4</span>
+      </div>
+    </div>
+    <p class="int-note">O que dá para fazer muda conforme a plataforma e as permissões de acesso de cada conta.</p>
+    <p class="punch">Quanto mais plataformas conectadas, mais a Reveny entende cada conta.</p>
+  </div>
+</section>
+
+<!-- MCP -->
+<section class="section-dark2">
+  <div class="reveal">
+    <span class="s-eyebrow blue">Reveny + Claude</span>
+    <h2 class="s-title light tight">Crie campanhas<br><em style="color:#6CB4FF">conversando com a sua IA.</em></h2>
+  </div>
+  <div class="reveal">
+    <p class="lead">Com o MCP da Reveny, sua equipe pede uma campanha no Claude, e ela é criada e enviada como rascunho para a Flowbiz, sem abrir outra ferramenta.</p>
+    <p class="lead">A Reveny deixa de ser mais uma aba aberta no navegador e passa a fazer parte do jeito que sua agência trabalha.</p>
+    <div class="chat-demo" aria-hidden="true">
+      <div class="bubble me">Cria uma campanha de Dia das Crianças pra marca Loja Exemplo, com os 3 produtos mais vendidos.</div>
+      <div class="bubble ai">Pronto. Montei o e-mail com banner, texto e os 3 produtos, no tom da marca. <b>Rascunho enviado para a Flowbiz</b>, só revisar e agendar.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CRESCER -->
+<section class="section-dark">
+  <div class="reveal">
+    <span class="s-eyebrow blue">Para agências</span>
+    <h2 class="s-title light tight">Para agências que querem crescer<br><em style="color:#6CB4FF">sem multiplicar o trabalho manual.</em></h2>
+  </div>
+  <div class="reveal">
+    <p class="lead">Mais clientes não deveria significar mais horas de produção na mesma proporção.</p>
+    <p class="lead">A Reveny diminui o esforço de criação, transforma os dados que você já tem em direção e deixa sua equipe pronta para atender mais marcas.</p>
+    <p class="punch">Sua agência cresce. A operação acompanha.</p>
+    <div style="margin-top:2rem"><button class="btn-main" style="max-width:320px" onclick="document.getElementById('how').scrollIntoView({behavior:'smooth'})">Conheça a Reveny</button></div>
   </div>
 </section>
 
 <!-- PROVA SOCIAL -->
 <section class="section-dark">
   <div class="reveal">
-    <span class="s-eyebrow blue">Resultados</span>
-    <h2 class="s-title light">Números que<br><em style="color:#7aaec7">falam por si.</em></h2>
+    <span class="s-eyebrow blue">Depoimentos</span>
+    <h2 class="s-title light">Quem usa,<br><em style="color:#6CB4FF">conta.</em></h2>
   </div>
 
-  <div class="stats">
-    <div class="stat reveal">
-      <div class="stat-val"><span>12k</span>+</div>
-      <div class="stat-label">emails gerados por mês</div>
-    </div>
-    <div class="stat reveal d1">
-      <div class="stat-val"><span>47</span>s</div>
-      <div class="stat-label">tempo médio de geração completa</div>
-    </div>
-    <div class="stat reveal d2">
-      <div class="stat-val"><span>3x</span></div>
-      <div class="stat-label">mais emails enviados por semana</div>
-    </div>
-  </div>
-
-  <div class="testis" style="margin-top:2px">
+  <div class="testis">
     <div class="testi reveal">
       <div class="testi-text">Eu gastava uma tarde inteira pra montar um email. Hoje faço três em menos de cinco minutos. Mudou completamente o ritmo da minha operação.</div>
       <div class="testi-author">
@@ -807,94 +939,73 @@
 <section class="section-light" id="pricing">
   <div class="reveal">
     <span class="s-eyebrow steel">Planos</span>
-    <h2 class="s-title dark">Dois planos.<br><em style="color:#4a7fa5">Sem surpresa.</em></h2>
+    <h2 class="s-title dark">Dois planos.<br><em style="color:#0B80F5">Sem surpresa.</em></h2>
   </div>
 
   <div class="plans">
 
-    <!-- E-COMMERCE -->
+    <!-- STARTER -->
     <div class="plan reveal">
-      <div class="plan-name">E-commerce</div>
-      <div class="plan-desc">Para lojas com 1 marca · peças por mês</div>
+      <div class="plan-name">Starter</div>
+      <div class="plan-desc">Para quem cuida de 1 marca</div>
       <div class="plan-div"></div>
 
       <div class="plan-tiers">
-        <div class="plan-tier">
-          <div class="plan-tier-info">
-            <span class="plan-tier-name">Starter</span>
-            <span class="plan-tier-sub">12 peças / mês</span>
-          </div>
-          <span class="plan-tier-price">R$ 197</span>
-        </div>
         <div class="plan-tier active">
           <div class="plan-tier-info">
-            <span class="plan-tier-name">Pro</span>
-            <span class="plan-tier-sub">24 peças / mês</span>
+            <span class="plan-tier-name">1 marca</span>
+            <span class="plan-tier-sub">12 e-mails · 300 créditos de IA / mês</span>
           </div>
-          <span class="plan-tier-price">R$ 347</span>
-        </div>
-        <div class="plan-tier">
-          <div class="plan-tier-info">
-            <span class="plan-tier-name">Scale</span>
-            <span class="plan-tier-sub">36 peças / mês</span>
-          </div>
-          <span class="plan-tier-price">R$ 497</span>
+          <span class="plan-tier-price">R$ 197</span>
         </div>
       </div>
 
       <div class="plan-div"></div>
       <ul class="plan-features">
-        <li>1 marca</li>
-        <li>Copy + banner incluso em cada peça</li>
-        <li>Shopify, VTEX, Nuvemshop e mais</li>
-        <li>Histórico completo de campanhas</li>
-        <li>Suporte por email</li>
+        <li>Banner, texto e produtos criados com a cara da marca</li>
+        <li>Editor completo para ajustar cada detalhe</li>
+        <li>Mensagem de WhatsApp junto com o e-mail</li>
+        <li>Relatórios das campanhas</li>
+        <li>Suporte por e-mail</li>
       </ul>
-      <button class="plan-btn outline" onclick="agendarDemo()">Agendar demonstração</button>
-      <div class="plan-note">Ao atingir o limite, seu plano sobe automaticamente para a próxima faixa.</div>
+      <button class="plan-btn outline" onclick="agendarDemo()">Fale com nosso time</button>
+      <div class="plan-note">Acompanhe o uso no painel e troque de plano quando quiser.</div>
     </div>
 
     <!-- AGÊNCIA -->
     <div class="plan featured reveal d1">
       <div class="plan-badge">Para agências</div>
       <div class="plan-name">Agência</div>
-      <div class="plan-desc">Para agências e freelancers · múltiplos clientes</div>
+      <div class="plan-desc">Para agências que cuidam de várias marcas</div>
       <div class="plan-div"></div>
 
       <div class="plan-tiers">
         <div class="plan-tier active">
           <div class="plan-tier-info">
             <span class="plan-tier-name">Core · até 5 marcas</span>
-            <span class="plan-tier-sub">30 peças / mês</span>
+            <span class="plan-tier-sub">60 e-mails · 1.500 créditos de IA / mês</span>
           </div>
           <span class="plan-tier-price">R$ 547</span>
         </div>
         <div class="plan-tier">
           <div class="plan-tier-info">
             <span class="plan-tier-name">Pro · até 10 marcas</span>
-            <span class="plan-tier-sub">60 peças / mês</span>
+            <span class="plan-tier-sub">120 e-mails · 3.000 créditos de IA / mês</span>
           </div>
           <span class="plan-tier-price">R$ 797</span>
-        </div>
-        <div class="plan-tier expansion">
-          <div class="plan-tier-info">
-            <span class="plan-tier-name">Expansão · +1 marca</span>
-            <span class="plan-tier-sub">+6 peças incluídas</span>
-          </div>
-          <span class="plan-tier-price">+R$ 69/marca</span>
         </div>
       </div>
 
       <div class="plan-div"></div>
       <ul class="plan-features">
-        <li>Múltiplas marcas em uma conta</li>
-        <li>Copy + banner incluso em cada peça</li>
-        <li>Todas as plataformas suportadas</li>
-        <li>Multi-workspace por cliente</li>
+        <li>Várias marcas numa conta, cada uma com sua identidade</li>
+        <li>Tudo do Starter, para todas as marcas</li>
+        <li>Integração com lojas e ferramentas de envio</li>
+        <li>Rascunho direto na Flowbiz e na Klaviyo</li>
         <li>Suporte prioritário</li>
       </ul>
-      <button class="plan-btn solid" onclick="agendarDemo()">Agendar demonstração</button>
-      <div class="plan-note">Acima de 10 marcas, pague apenas R$ 69 por marca adicional.</div>
+      <button class="plan-btn solid" onclick="agendarDemo()">Fale com nosso time</button>
+      <div class="plan-note">Mais de 10 marcas? Fale com nosso time.</div>
     </div>
 
   </div>
@@ -904,7 +1015,7 @@
 <section class="section-dark" id="faq">
   <div class="reveal">
     <span class="s-eyebrow blue">Dúvidas</span>
-    <h2 class="s-title light">Perguntas<br><em style="color:#7aaec7">frequentes.</em></h2>
+    <h2 class="s-title light">Perguntas<br><em style="color:#6CB4FF">frequentes.</em></h2>
   </div>
 
   <div class="faq-list reveal">
@@ -914,11 +1025,11 @@
     </div>
     <div class="faq-item">
       <div class="faq-q">O banner é gerado automaticamente? <span class="faq-icon">+</span></div>
-      <div class="faq-a">Sim. Ao colar a URL do produto, a Reveny gera o copy e o banner visual em um único clique. Nenhum Canva necessário.</div>
+      <div class="faq-a">Sim. A partir do link do produto ou de um pedido em texto, a Reveny cria o banner, o texto e monta o e-mail. Nada de Canva.</div>
     </div>
     <div class="faq-item">
-      <div class="faq-q">O que acontece se eu atingir o limite de peças? <span class="faq-icon">+</span></div>
-      <div class="faq-a">Seu plano sobe automaticamente para a próxima faixa e você é notificado. Nunca ficará bloqueado no meio de uma campanha. O novo valor é cobrado na próxima renovação.</div>
+      <div class="faq-q">O que acontece se eu atingir o limite do plano? <span class="faq-icon">+</span></div>
+      <div class="faq-a">Você acompanha os e-mails e créditos usados no painel. Se precisar de mais, é só trocar de plano, sem perder nada do que já criou.</div>
     </div>
     <div class="faq-item">
       <div class="faq-q">Funciona com qualquer nicho? <span class="faq-icon">+</span></div>
@@ -930,7 +1041,7 @@
     </div>
     <div class="faq-item">
       <div class="faq-q">Funciona para agências com múltiplos clientes? <span class="faq-icon">+</span></div>
-      <div class="faq-a">Sim. O plano Agência foi criado pra isso — gerencie até 10 marcas em uma conta, cada uma com identidade visual e campanhas independentes. Precisa de mais? Adicione quantas marcas quiser por R$ 69 cada.</div>
+      <div class="faq-a">Sim. O plano Agência foi criado pra isso: até 10 marcas numa conta, cada uma com sua identidade visual, suas integrações e suas campanhas. Precisa de mais? Fale com nosso time.</div>
     </div>
   </div>
 </section>
@@ -941,14 +1052,14 @@
     <em>A gente cria,</em><br>
     você envia<span class="dot">.</span>
   </h2>
-  <p class="cta-sub reveal">Junte-se a centenas de lojas e agências que pararam de perder horas criando email do zero.</p>
-  <button class="cta-btn reveal" onclick="agendarDemo()">Agendar demonstração →</button>
+  <p class="cta-sub reveal">A operação de CRM da sua agência pode ser mais leve a partir de hoje.</p>
+  <button class="cta-btn reveal" onclick="agendarDemo()">Fale com nosso time →</button>
   <div class="cta-note reveal">Demonstração gratuita · Sem compromisso</div>
 </section>
 
 <!-- FOOTER -->
 <footer>
-  <div class="footer-logo"><span style="letter-spacing:-.04em;white-space:nowrap">Rev<span class="e">e</span>ny</span></div>
+  <div class="footer-logo"><img class="logo-img" src="brand/reveny-logo-branco.svg" alt="Reveny"></div>
   <div class="footer-links">
     <a href="#">Produto</a>
     <a href="#">Agências</a>
