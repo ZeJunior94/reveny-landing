@@ -1,0 +1,60 @@
+---
+import '../styles/blog.css';
+
+interface Props {
+  title: string;
+  description: string;
+  type?: 'website' | 'article';
+  jsonLd?: Record<string, unknown>;
+}
+
+const { title, description, type = 'website', jsonLd } = Astro.props;
+const canonical = new URL(Astro.url.pathname.replace(/\/?$/, '/'), Astro.site).href;
+const ogImage = new URL('/logo.png', Astro.site).href;
+const CALENDLY_URL = 'https://calendly.com/contato-reveny/30min';
+---
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{title}</title>
+  <meta name="description" content={description}>
+  <link rel="canonical" href={canonical}>
+  <link rel="icon" type="image/svg+xml" href="/brand/favicon.svg">
+  <link rel="apple-touch-icon" href="/brand/apple-touch-icon.png">
+  <link rel="sitemap" href="/sitemap-index.xml">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:site_name" content="Reveny">
+  <meta property="og:type" content={type}>
+  <meta property="og:title" content={title}>
+  <meta property="og:description" content={description}>
+  <meta property="og:url" content={canonical}>
+  <meta property="og:image" content={ogImage}>
+  <meta name="twitter:card" content="summary">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
+  {jsonLd && <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />}
+</head>
+<body>
+  <header class="site-header">
+    <a href="/" class="logo" aria-label="Reveny"><img src="/brand/reveny-logo-branco.svg" alt="Reveny"></a>
+    <nav>
+      <a href="/blog/">Blog</a>
+      <a href={CALENDLY_URL} target="_blank" rel="noopener" class="nav-cta">Fale com nosso time</a>
+    </nav>
+  </header>
+
+  <slot />
+
+  <footer class="site-footer">
+    <img src="/brand/reveny-logo-branco.svg" alt="Reveny" class="footer-logo">
+    <div class="footer-links">
+      <a href="/">Início</a>
+      <a href="/blog/">Blog</a>
+      <a href={CALENDLY_URL} target="_blank" rel="noopener">Agendar demonstração</a>
+    </div>
+    <div class="footer-copy">© 2026 Reveny.</div>
+  </footer>
+</body>
+</html>

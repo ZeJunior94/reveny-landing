@@ -1,0 +1,29 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getPosts, formatDate, readingTime } from '../../lib';
+
+const posts = await getPosts();
+---
+<Base
+  title="Blog da Reveny | E-mail marketing e CRM para agências de e-commerce"
+  description="Guias práticos de e-mail marketing, automação e CRM para agências que cuidam de lojas virtuais."
+>
+  <section class="hero">
+    <div class="hero-inner">
+      <span class="eyebrow">Blog da Reveny</span>
+      <h1>E-mail marketing e CRM para quem cuida de lojas virtuais</h1>
+      <p class="lead">Guias práticos para agências: o que enviar, quando enviar e como fazer isso para vários clientes sem perder a qualidade.</p>
+    </div>
+  </section>
+
+  <div class="post-list">
+    {posts.map((post) => (
+      <a class="post-card" href={`/blog/${post.id}/`}>
+        <span class="eyebrow">{post.data.tag}</span>
+        <h2>{post.data.title}</h2>
+        <p>{post.data.description}</p>
+        <div class="meta">{formatDate(post.data.date)} · {readingTime(post)}</div>
+      </a>
+    ))}
+  </div>
+</Base>

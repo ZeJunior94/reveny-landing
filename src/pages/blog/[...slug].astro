@@ -1,0 +1,53 @@
+---
+import { render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import { getPosts, formatDate, readingTime } from '../../lib';
+
+export async function getStaticPaths() {
+  const posts = await getPosts();
+  return posts.map((post) => ({ params: { slug: post.id }, props: { post } }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+const url = new URL(`/blog/${post.id}/`, Astro.site).href;
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BlogPosting',
+  headline: post.data.title,
+  description: post.data.description,
+  datePublished: post.data.date.toISOString(),
+  dateModified: (post.data.updated ?? post.data.date).toISOString(),
+  inLanguage: 'pt-BR',
+  mainEntityOfPage: url,
+  author: { '@type': 'Organization', name: 'Reveny', url: 'https://www.reveny.com.br/' },
+  publisher: {
+    '@type': 'Organization',
+    name: 'Reveny',
+    logo: { '@type': 'ImageObject', url: new URL('/logo.png', Astro.site).href },
+  },
+};
+---
+<Base title={`${post.data.title} | Reveny`} description={post.data.description} type="article" jsonLd={jsonLd}>
+  <section class="hero">
+    <div class="hero-inner">
+      <a href="/blog/" class="eyebrow" style="text-decoration:none">← Blog · {post.data.tag}</a>
+      <h1>{post.data.title}</h1>
+      <p class="lead">{post.data.description}</p>
+      <div class="meta">{formatDate(post.data.date)} · {readingTime(post)}</div>
+    </div>
+  </section>
+
+  <article class="article prose">
+    <Content />
+  </article>
+
+  <aside class="cta-box">
+    <div class="cta-inner">
+      <h2>Sua agência cuida de várias lojas?</h2>
+      <p>A Reveny cria as campanhas de e-mail com a cara de cada marca e deixa o rascunho pronto na ferramenta de envio do cliente. Você revisa e envia.</p>
+      <a href="https://calendly.com/contato-reveny/30min" target="_blank" rel="noopener">Agendar uma demonstração →</a>
+    </div>
+  </aside>
+</Base>
