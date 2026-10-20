@@ -128,3 +128,7 @@ img { max-width: 100%; }
 /* checklist */
 .prose .contains-task-list { list-style: none; margin-left: 0; }
 .prose .task-list-item input { margin-right: .5rem; accent-color: var(--steel); }
+
+/* capa */
+.prose .cover { display: block; width: 100%; height: auto; border-radius: 12px; margin-bottom: 2rem; }
+.post-card .card-cover { display: block; width: calc(100% + 3.2rem); max-width: none; height: auto; margin: -1.6rem -1.6rem 1.3rem; border-radius: 13px 13px 0 0; }

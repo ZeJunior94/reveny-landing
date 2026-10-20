@@ -21,6 +21,7 @@ const jsonLd = {
   dateModified: (post.data.updated ?? post.data.date).toISOString(),
   inLanguage: 'pt-BR',
   mainEntityOfPage: url,
+  ...(post.data.cover && { image: new URL(post.data.cover, Astro.site).href }),
   author: { '@type': 'Organization', name: 'Reveny', url: 'https://www.reveny.com.br/' },
   publisher: {
     '@type': 'Organization',
@@ -29,7 +30,7 @@ const jsonLd = {
   },
 };
 ---
-<Base title={`${post.data.title} | Reveny`} description={post.data.description} type="article" jsonLd={jsonLd}>
+<Base title={`${post.data.title} | Reveny`} description={post.data.description} type="article" jsonLd={jsonLd} image={post.data.cover}>
   <section class="hero">
     <div class="hero-inner">
       <a href="/blog/" class="eyebrow" style="text-decoration:none">← Blog · {post.data.tag}</a>
@@ -40,6 +41,7 @@ const jsonLd = {
   </section>
 
   <article class="article prose">
+    {post.data.cover && <img class="cover" src={post.data.cover} alt={post.data.coverAlt} width="1200" height="630">}
     <Content />
   </article>
 

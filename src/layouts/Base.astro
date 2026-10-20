@@ -6,11 +6,12 @@ interface Props {
   description: string;
   type?: 'website' | 'article';
   jsonLd?: Record<string, unknown>;
+  image?: string;
 }
 
-const { title, description, type = 'website', jsonLd } = Astro.props;
+const { title, description, type = 'website', jsonLd, image } = Astro.props;
 const canonical = new URL(Astro.url.pathname.replace(/\/?$/, '/'), Astro.site).href;
-const ogImage = new URL('/logo.png', Astro.site).href;
+const ogImage = new URL(image ?? '/logo.png', Astro.site).href;
 const CALENDLY_URL = 'https://calendly.com/contato-reveny/30min';
 ---
 <!DOCTYPE html>
@@ -31,7 +32,7 @@ const CALENDLY_URL = 'https://calendly.com/contato-reveny/30min';
   <meta property="og:description" content={description}>
   <meta property="og:url" content={canonical}>
   <meta property="og:image" content={ogImage}>
-  <meta name="twitter:card" content="summary">
+  <meta name="twitter:card" content={image ? 'summary_large_image' : 'summary'}>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
   {jsonLd && <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />}

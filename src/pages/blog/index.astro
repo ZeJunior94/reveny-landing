@@ -19,6 +19,7 @@ const posts = await getPosts();
   <div class="post-list">
     {posts.map((post) => (
       <a class="post-card" href={`/blog/${post.id}/`}>
+        {post.data.cover && <img class="card-cover" src={post.data.cover} alt={post.data.coverAlt} width="1200" height="630" loading="lazy">}
         <span class="eyebrow">{post.data.tag}</span>
         <h2>{post.data.title}</h2>
         <p>{post.data.description}</p>

@@ -9,6 +9,8 @@ const blog = defineCollection({
     date: z.coerce.date(),
     updated: z.coerce.date().optional(),
     tag: z.string().default('E-mail marketing'),
+    cover: z.string().optional(),
+    coverAlt: z.string().default(''),
     draft: z.boolean().default(false),
   }),
 });

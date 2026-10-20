@@ -3,6 +3,8 @@ title: "Calendário de e-mail marketing para a Black Friday 2026: o que enviar e
 description: "Um roteiro semana a semana para a Black Friday de 27 de novembro: preparar a base, captar interessados, a sequência do dia e o pós-venda. Feito para agências que cuidam de várias lojas."
 date: 2026-10-20
 tag: Black Friday
+cover: /capas/calendario-email-marketing-black-friday.png
+coverAlt: "Calendário de novembro de 2026 com as fases da campanha de Black Friday e o dia 27 em destaque"
 ---
 
 A Black Friday de 2026 cai em **27 de novembro**, e a Cyber Monday em **30 de novembro**. Quem deixa pra pensar nos e-mails na última semana costuma mandar um disparo "MEGA OFERTA" pra base inteira e torcer. Quem planeja trata a data como uma sequência que começa um mês antes.
