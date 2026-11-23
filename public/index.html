@@ -263,8 +263,11 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .err{color:#C2412D;font-size:14px}
 
 /* PLANOS */
-.plans{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:40px}
-@media (max-width:900px){.plans{grid-template-columns:1fr}}
+.plans{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px;margin-top:40px}
+@media (max-width:1100px){.plans{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:640px){.plans{grid-template-columns:1fr}}
+.hx-hint a{color:inherit;font-weight:600}
+.plans .btn{white-space:nowrap;padding-inline:16px}
 .plan{border:1px solid var(--line);border-radius:16px;background:var(--surface);padding:28px;display:flex;flex-direction:column;gap:14px}
 .plan.featured{border-color:var(--blue);box-shadow:0 0 0 3px color-mix(in srgb,var(--blue) 18%,transparent)}
 .plan h3{font-size:26px;font-weight:700;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
@@ -340,15 +343,15 @@ img{max-width:100%}
       <span class="hx-tag"><i></i>Infraestrutura de criação para agências de CRM</span>
       <h1>Sua agência pode produzir mais. <em>Sem crescer a equipe.</em></h1>
       <p class="hx-sub">Crie campanhas de e-mail completas em minutos com IA. Reduza o custo de produção e aumente a margem de cada conta.</p>
-      <form class="hx-pill" id="heroSite" aria-label="Começar agora">
+      <form class="hx-pill" id="heroSite" aria-label="Criar conta grátis">
         <span class="proto">https://</span>
         <input type="text" name="site" placeholder="sualoja.com.br" autocomplete="off" inputmode="url" aria-label="Site da loja do seu cliente">
-        <button type="submit"><span class="long">Começar agora</span><span class="short">Começar</span>
+        <button type="submit"><span class="long">Começar grátis</span><span class="short">Começar</span>
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
       </form>
       <div class="hx-under">
         <a class="hx-ghost" href="#planos">Ver planos</a>
-        <span class="hx-hint">Cole o site de um cliente e a gente mostra a Reveny lendo a marca.</span>
+        <span class="hx-hint">Grátis, sem cartão: 3 e-mails por mês. Prefere conversar? <a href="#" data-demo>Agendar demonstração</a></span>
       </div>
       <div class="hx-proof">
         <p>O rascunho vai direto para a ferramenta de envio da sua agência</p>
@@ -574,6 +577,13 @@ img{max-width:100%}
     <h2 style="margin-top:14px">Escolha pelo tamanho da sua operação</h2>
     <div class="plans">
       <div class="plan">
+        <h3>Gratuito</h3>
+        <div class="price">R$ 0<small>/mês</small></div>
+        <ul><li>1 marca</li><li>3 e-mails por mês</li><li>100 créditos de IA por mês</li></ul>
+        <span class="per">Sem cartão. Com o selo "Feito com Reveny"</span>
+        <a class="btn btn-line" href="#" data-signup>Criar conta grátis</a>
+      </div>
+      <div class="plan">
         <h3>Core</h3>
         <div class="price">R$ 547<small>/mês</small></div>
         <ul><li>Até 5 marcas</li><li>60 e-mails por mês</li><li>1.500 créditos de IA por mês</li></ul>
@@ -606,6 +616,7 @@ img{max-width:100%}
     </div>
     <div class="faq">
       <details><summary>A Reveny substitui minha agência?</summary><p>Não. A Reveny é a infraestrutura que sua agência usa pra entregar mais rápido. Você continua com a estratégia, e a gente resolve a execução criativa.</p></details>
+      <details><summary>Tem plano gratuito?</summary><p>Sim. Você cria a conta sem cartão e usa 1 marca, com 3 e-mails e 100 créditos de IA por mês. O e-mail sai com um selo pequeno "Feito com Reveny" no rodapé. Mandar o rascunho direto pro Klaviyo ou pra Flowbiz, fluxos de automação e o link de aprovação do cliente ficam nos planos pagos.</p></details>
       <details><summary>O banner é gerado automaticamente?</summary><p>Sim. A partir do link do produto ou de um pedido em texto, a Reveny cria o banner, o texto e monta o e-mail. Nada de Canva.</p></details>
       <details><summary>O que acontece se eu atingir o limite do plano?</summary><p>Você acompanha os e-mails e créditos usados no painel. Se precisar de mais, é só trocar de plano, sem perder nada do que já criou.</p></details>
       <details><summary>Funciona com qualquer nicho?</summary><p>Sim. Temos regras específicas para moda, joias, infoprodutos, saúde e beleza, decoração e muito mais.</p></details>
@@ -627,16 +638,18 @@ img{max-width:100%}
 
 <script>
 const CALENDLY_URL='https://calendly.com/contato-reveny/30min';
+// Cadastro no app já na tela "Criar conta"; o site digitado vai junto pro onboarding
+const SIGNUP_URL='https://app.reveny.com.br/login?cadastro=1';
 const WHATSAPP_NUMBER=''; // só dígitos, com 55 + DDD. Vazio = pedidos de proposta abrem o Calendly
 function openExternal(url){ const w=window.open(url,'_blank','noopener'); if(!w) location.href=url; }
 
 document.documentElement.classList.add('js');
-// Pílula do site no topo: abre a conversa com o time levando o site digitado
-// (o Calendly preenche a 1ª pergunta com a1, se houver; senão ignora)
+// Pílula do site no topo: cria a conta grátis levando o site digitado
+// (plano Gratuito, desde 2026-11-23; antes abria o Calendly)
 document.getElementById('heroSite').addEventListener('submit',e=>{
   e.preventDefault();
   const site=(e.target.site.value||'').trim().replace(/^https?:[/][/]/i,'');
-  openExternal(site?CALENDLY_URL+'?a1='+encodeURIComponent('Site do cliente: '+site):CALENDLY_URL);
+  location.href=site?SIGNUP_URL+'&site='+encodeURIComponent(site):SIGNUP_URL;
 });
 
 // Calculadora
@@ -680,6 +693,8 @@ calc();
 
 // Botões: agendamento (Calendly) e pedido de proposta
 document.addEventListener('click',e=>{
+  const signup=e.target.closest('[data-signup]');
+  if(signup){ e.preventDefault(); location.href=SIGNUP_URL; return; }
   const demo=e.target.closest('[data-demo]');
   if(demo){ e.preventDefault(); openExternal(CALENDLY_URL); return; }
   const prop=e.target.closest('[data-open-proposal]');
