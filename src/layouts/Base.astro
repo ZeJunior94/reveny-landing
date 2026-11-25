@@ -12,7 +12,7 @@ interface Props {
 const { title, description, type = 'website', jsonLd, image } = Astro.props;
 const canonical = new URL(Astro.url.pathname.replace(/\/?$/, '/'), Astro.site).href;
 const ogImage = new URL(image ?? '/logo.png', Astro.site).href;
-const CALENDLY_URL = 'https://calendly.com/contato-reveny/30min';
+const CONTATO_URL = '/?falar=1'; // abre o formulário de contato da home
 ---
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -42,7 +42,7 @@ const CALENDLY_URL = 'https://calendly.com/contato-reveny/30min';
     <a href="/" class="logo" aria-label="Reveny"><img src="/brand/reveny-logo-branco.svg" alt="Reveny"></a>
     <nav>
       <a href="/blog/">Blog</a>
-      <a href={CALENDLY_URL} target="_blank" rel="noopener" class="nav-cta">Fale com nosso time</a>
+      <a href={CONTATO_URL} class="nav-cta">Fale com nosso time</a>
     </nav>
   </header>
 
@@ -53,7 +53,7 @@ const CALENDLY_URL = 'https://calendly.com/contato-reveny/30min';
     <div class="footer-links">
       <a href="/">Início</a>
       <a href="/blog/">Blog</a>
-      <a href={CALENDLY_URL} target="_blank" rel="noopener">Agendar demonstração</a>
+      <a href={CONTATO_URL}>Fale com nosso time</a>
     </div>
     <div class="footer-copy">© 2026 Reveny.</div>
   </footer>

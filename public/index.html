@@ -351,7 +351,7 @@ img{max-width:100%}
       </form>
       <div class="hx-under">
         <a class="hx-ghost" href="#planos">Ver planos</a>
-        <span class="hx-hint">Grátis, sem cartão: 3 e-mails por mês. Prefere conversar? <a href="#" data-demo>Agendar demonstração</a></span>
+        <span class="hx-hint">Grátis, sem cartão: 3 e-mails por mês. Prefere conversar? <a href="#" data-demo>Fale com o time</a></span>
       </div>
       <div class="hx-proof">
         <p>O rascunho vai direto para a ferramenta de envio da sua agência</p>
@@ -636,16 +636,76 @@ img{max-width:100%}
 </main>
 <footer><div class="wrap"><img src="brand/reveny-logo-branco.svg" alt="Reveny" width="106" height="20"><span><a href="/blog/" style="text-decoration:none">Blog</a> · © 2026 Reveny</span></div></footer>
 
+<!-- Formulário de contato (2026-11-25): vira cartão no CRM de vendas (Trello) e lead no HQ. Antes ia pro Calendly. -->
+<dialog class="lead" id="leadDialog" aria-labelledby="leadTitle">
+  <button type="button" class="lead-x" id="leadClose" aria-label="Fechar">×</button>
+  <form id="leadForm" novalidate>
+    <h2 id="leadTitle">Fale com o nosso time</h2>
+    <p class="lead-sub">Conte um pouco sobre você. A gente te chama no WhatsApp.</p>
+    <div class="lead-grid">
+      <label class="lead-full">Seu nome<input name="nome" autocomplete="name" required maxlength="100"></label>
+      <label>WhatsApp com DDD<input name="whatsapp" type="tel" inputmode="tel" autocomplete="tel" placeholder="(11) 91234-5678" required maxlength="30"></label>
+      <label>E-mail<input name="email" type="email" inputmode="email" autocomplete="email" required maxlength="160"></label>
+      <label>Agência ou empresa<input name="empresa" autocomplete="organization" required maxlength="120"></label>
+      <label>Você é
+        <select name="perfil"><option>Agência</option><option>Loja online</option><option>Criador ou infoprodutor</option><option>Outro</option></select>
+      </label>
+      <label>Marcas que atende
+        <select name="marcas"><option>1</option><option>2 a 5</option><option>6 a 10</option><option>11 ou mais</option></select>
+      </label>
+      <label>Ferramenta de envio <span>(opcional)</span><input name="ferramenta" placeholder="Klaviyo, Flowbiz…" maxlength="60"></label>
+      <label class="lead-full">O que você precisa? <span>(opcional)</span><textarea name="mensagem" rows="3" maxlength="1500"></textarea></label>
+    </div>
+    <div class="lead-hp" aria-hidden="true"><label>Não preencha<input name="empresa_site" tabindex="-1" autocomplete="off"></label></div>
+    <p class="lead-err" id="leadErr" role="alert" hidden></p>
+    <button type="submit" class="btn btn-primary lead-send" id="leadSend">Enviar</button>
+    <p class="lead-note">Ao enviar, você concorda em receber o contato da Reveny. Usamos seus dados só para isso.</p>
+  </form>
+  <div class="lead-ok" id="leadOk" hidden>
+    <span class="lead-check" aria-hidden="true">✓</span>
+    <h2>Recebemos, <span id="leadName"></span>!</h2>
+    <p class="lead-sub">O nosso time vai te chamar no WhatsApp que você deixou.</p>
+    <button type="button" class="btn btn-primary" id="leadDone">Fechar</button>
+  </div>
+</dialog>
+<style>
+.lead{border:0;padding:0;width:min(600px,calc(100vw - 32px));max-height:calc(100dvh - 32px);border-radius:20px;background:#fff;color:#1a2e40;box-shadow:0 40px 90px -30px rgba(6,26,51,.6);overflow:auto;font-family:'DM Sans',sans-serif;margin:auto}
+.lead::backdrop{background:rgba(6,26,51,.62)}
+.lead form,.lead-ok{padding:30px 30px 26px}
+.lead h2{font-family:'Plus Jakarta Sans',sans-serif;font-size:24px;line-height:1.2;margin:0;color:#0B2545;letter-spacing:-.01em}
+.lead-sub{margin:6px 0 20px;color:#5a6b7d;font-size:15px}
+.lead-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.lead label{display:block;font-size:13.5px;font-weight:500;color:#1a2e40}
+.lead label span{font-weight:400;color:#7b8a99}
+.lead-full{grid-column:1/-1}
+.lead input,.lead select,.lead textarea{display:block;width:100%;margin-top:5px;padding:11px 12px;border:1px solid #d5dee6;border-radius:11px;background:#fff;font:inherit;font-size:16px;font-weight:400;color:#1a2e40;box-sizing:border-box}
+.lead textarea{resize:vertical;min-height:74px}
+.lead input:focus,.lead select:focus,.lead textarea:focus{outline:0;border-color:#0B80F5;box-shadow:0 0 0 3px rgba(11,128,245,.16)}
+.lead [aria-invalid=true]{border-color:#d14343}
+.lead-hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.lead-err{margin:14px 0 0;color:#b42318;font-size:14px}
+.lead-send{width:100%;margin-top:18px;justify-content:center;border:0;cursor:pointer}
+.lead-send:disabled{opacity:.6;cursor:default}
+.lead-note{margin:12px 0 0;font-size:12.5px;color:#7b8a99}
+.lead-x{position:absolute;top:12px;right:12px;width:36px;height:36px;border:0;border-radius:10px;background:transparent;font-size:24px;line-height:1;color:#7b8a99;cursor:pointer}
+.lead-x:hover{background:#f1f4f7;color:#1a2e40}
+.lead-x:focus-visible,.lead-ok .btn:focus-visible{outline:3px solid rgba(11,128,245,.4);outline-offset:2px}
+.lead-ok{text-align:center;padding:46px 30px}
+.lead-check{display:inline-flex;align-items:center;justify-content:center;width:54px;height:54px;border-radius:50%;background:#eaf3fe;color:#0B80F5;font-size:26px;margin-bottom:14px}
+.lead-ok .btn{border:0;cursor:pointer}
+@media (max-width:560px){.lead-grid{grid-template-columns:1fr}.lead form{padding:26px 20px 22px}}
+</style>
+
 <script>
-const CALENDLY_URL='https://calendly.com/contato-reveny/30min';
+const LEAD_API='https://mailflow-seu-email-inteligente-production.up.railway.app/api/public/leads';
 // Cadastro no app já na tela "Criar conta"; o site digitado vai junto pro onboarding
 const SIGNUP_URL='https://app.reveny.com.br/login?cadastro=1';
-const WHATSAPP_NUMBER=''; // só dígitos, com 55 + DDD. Vazio = pedidos de proposta abrem o Calendly
+const WHATSAPP_NUMBER=''; // só dígitos, com 55 + DDD. Vazio = pedidos de proposta abrem o formulário
 function openExternal(url){ const w=window.open(url,'_blank','noopener'); if(!w) location.href=url; }
 
 document.documentElement.classList.add('js');
 // Pílula do site no topo: cria a conta grátis levando o site digitado
-// (plano Gratuito, desde 2026-11-23; antes abria o Calendly)
+// (plano Gratuito, desde 2026-11-23)
 document.getElementById('heroSite').addEventListener('submit',e=>{
   e.preventDefault();
   const site=(e.target.site.value||'').trim().replace(/^https?:[/][/]/i,'');
@@ -691,14 +751,56 @@ function calc(){
 $('calcForm').addEventListener('submit',e=>e.preventDefault());
 calc();
 
-// Botões: agendamento (Calendly) e pedido de proposta
+// Formulário de contato: lead no HQ e cartão no CRM de vendas
+const leadDlg=$('leadDialog'), leadForm=$('leadForm');
+let leadOpenedAt=0, leadOrigin='';
+function openLead(origin,withCalc){
+  leadOrigin=(origin||'').replace(/\s+/g,' ').trim().slice(0,80);
+  leadForm.dataset.calc=withCalc&&last.e?`${last.b} marcas, ${last.e} e-mails por mês, ${brl(last.c)} por e-mail hoje`:'';
+  if(withCalc&&last.b) leadForm.marcas.value=last.b<=1?'1':last.b<=5?'2 a 5':last.b<=10?'6 a 10':'11 ou mais';
+  leadForm.hidden=false; $('leadOk').hidden=true; $('leadErr').hidden=true;
+  leadOpenedAt=Date.now();
+  if(leadDlg.showModal) leadDlg.showModal(); else leadDlg.setAttribute('open','');
+  leadForm.nome.focus();
+}
+function closeLead(){ if(leadDlg.close) leadDlg.close(); else leadDlg.removeAttribute('open'); }
+$('leadClose').addEventListener('click',closeLead);
+$('leadDone').addEventListener('click',closeLead);
+function leadError(msg,field){
+  leadForm.querySelectorAll('[aria-invalid]').forEach(x=>x.removeAttribute('aria-invalid'));
+  $('leadErr').textContent=msg; $('leadErr').hidden=!msg;
+  const el=field&&leadForm.elements[field]; if(el){ el.setAttribute('aria-invalid','true'); el.focus(); }
+}
+leadForm.addEventListener('submit',async e=>{
+  e.preventDefault();
+  const d=Object.fromEntries(new FormData(leadForm).entries());
+  if(d.nome.trim().length<2) return leadError('Escreva o seu nome.','nome');
+  const dig=d.whatsapp.replace(/\D/g,''); if(dig.length<10||dig.length>13) return leadError('Confira o WhatsApp, com DDD.','whatsapp');
+  if(!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(d.email.trim())) return leadError('Confira o e-mail.','email');
+  if(d.empresa.trim().length<2) return leadError('Escreva o nome da empresa ou agência.','empresa');
+  leadError('');
+  const btn=$('leadSend'); btn.disabled=true; btn.textContent='Enviando…';
+  try{
+    const utm=[...new URLSearchParams(location.search)].filter(([k])=>k.startsWith('utm_')).map(([k,v])=>k+'='+v).join(' ');
+    const r=await fetch(LEAD_API,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({...d,origem:leadOrigin,pagina:document.referrer&&new URLSearchParams(location.search).has('falar')?document.referrer.split('?')[0]:location.pathname,utm,calculadora:leadForm.dataset.calc||'',tempo_ms:Date.now()-leadOpenedAt})});
+    const out=await r.json().catch(()=>({}));
+    if(!r.ok) return leadError(out.error||'Não consegui enviar agora. Tente de novo em instantes.',out.field);
+    $('leadName').textContent=d.nome.trim().split(/\s+/)[0];
+    leadForm.reset(); leadForm.hidden=true; $('leadOk').hidden=false; $('leadDone').focus();
+  }catch(err){ leadError('Sem conexão com o servidor. Confira a internet e tente de novo.'); }
+  finally{ btn.disabled=false; btn.textContent='Enviar'; }
+});
+// link do blog: /?falar=1 já abre o formulário
+if(new URLSearchParams(location.search).has('falar')) openLead('Blog',false);
+
+// Botões: formulário de contato e pedido de proposta
 document.addEventListener('click',e=>{
   const signup=e.target.closest('[data-signup]');
   if(signup){ e.preventDefault(); location.href=SIGNUP_URL; return; }
   const demo=e.target.closest('[data-demo]');
-  if(demo){ e.preventDefault(); openExternal(CALENDLY_URL); return; }
+  if(demo){ e.preventDefault(); openLead(demo.textContent,demo.id==='outCta'); return; }
   const prop=e.target.closest('[data-open-proposal]');
-  if(prop){ if(!WHATSAPP_NUMBER){ e.preventDefault(); openExternal(CALENDLY_URL); return; } $('proposta').hidden=false; }
+  if(prop){ if(!WHATSAPP_NUMBER){ e.preventDefault(); openLead(prop.textContent,prop.id==='outCta'); return; } $('proposta').hidden=false; }
 });
 $('propForm').addEventListener('submit',e=>{
   e.preventDefault();
